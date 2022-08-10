@@ -10,6 +10,7 @@
 
 #### [Component Hierarchy Diagram & Entity Relationship Diagram](https://drive.google.com/file/d/1QNlzVS9sxt8pbrxwxD0uIWy81-MzGRF9/view?usp=sharing)
 
+#### [Pitch Slides](https://docs.google.com/presentation/d/1HUrO2wHtleAM9TWAxigKFs-YDKhxcyKJiUcwDUOL2tM/edit?usp=sharing)
 ---
 
 ### **_Description_**
