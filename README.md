@@ -1,6 +1,6 @@
 # Rabido
 
-<img src="https://o.remove.bg/downloads/7f5819ee-ca51-416f-ae9e-da16c55c15f1/40f7fb53504d92c02ed05d055168fe4c-removebg-preview__2_-removebg-preview.png/>
+<img src="https://o.remove.bg/downloads/7f5819ee-ca51-416f-ae9e-da16c55c15f1/40f7fb53504d92c02ed05d055168fe4c-removebg-preview__2_-removebg-preview.png>
 
 ### Date: 8/10/2022
 
