@@ -3,8 +3,7 @@ body{
   padding: 0;
   font-family: sans-serif;
   background-image: url(https://wallpaperaccess.com/full/3158925.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background-size: 1500px;
 }
 
 .App {
@@ -14,12 +13,11 @@ body{
 /* SIGNUP/SIGN IN */
 
 .signup-form , .signin-form{
-  width: 40vw;
-
+  width: 35vw;
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
   background: white;
   padding: 20px;
-  margin: 5% auto 0;
+  margin: 9% auto 0;
   text-align: center;
   border-radius: 30px;
 }

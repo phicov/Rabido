@@ -19,6 +19,12 @@ function Profile(props) {
         </Link>
       </nav>
       <h1>Profile</h1>
+        <div className="profileContainer">
+          <div className="profileForm">
+
+          </div>
+
+        </div>
     </div>
   )
 }
