@@ -5,7 +5,6 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     let profiles = [...Array(40)].map((_) => ({
       name: falso.randFullName(),
-
       email: falso.randEmail(),
       passwordDigest: falso.randPassword(),
       image: falso.randImg(),
