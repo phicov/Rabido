@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      User.belongsTo(models.Profile, { foreignKey: 'profileId' })
     }
   }
   User.init(
@@ -28,7 +28,15 @@ module.exports = (sequelize, DataTypes) => {
       },
       passwordDigest: DataTypes.STRING,
       city: DataTypes.STRING,
-      isHunter: DataTypes.BOOLEAN
+      isHunter: DataTypes.BOOLEAN,
+      profileId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'profiles',
+          key: 'id'
+        }
+      }
     },
     {
       sequelize,
