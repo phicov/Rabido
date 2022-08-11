@@ -17,14 +17,24 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
+      image: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       city: {
         type: DataTypes.STRING,
         allowNull: false
       },
+      about: DataTypes.STRING,
       contact: {
         type: DataTypes.STRING,
         allowNull: false
-      }
+      },
+      rate: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      projects: DataTypes.STRING
     },
     {
       sequelize,

@@ -12,13 +12,27 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      image: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       city: {
         type: Sequelize.STRING,
         allowNull: false
       },
+      about: {
+        type: Sequelize.STRING
+      },
       contact: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      rate: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      projects: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
