@@ -37,14 +37,8 @@ function SignUp(props) {
   return (
     <div>
       <nav>
-        <Link className="link" to="/feed">
-          Feed
-        </Link>
-        <Link className="link" to="/categories">
-          Categories
-        </Link>
-        <Link className="link" to="/profile">
-          Profile
+        <Link className="link" to="/">
+          Sign In
         </Link>
       </nav>
       <div className="signup-container">

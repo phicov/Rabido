@@ -27,15 +27,6 @@ function SignIn(props) {
         <Link className="link" to="/signup">
           Sign Up
         </Link>
-        <Link className="link" to="/feed">
-          Feed
-        </Link>
-        <Link className="link" to="/categories">
-          Categories
-        </Link>
-        <Link className="link" to="/profile">
-          Profile
-        </Link>
       </nav>
       <div className="signin-container">
         <div className="signin-background">
