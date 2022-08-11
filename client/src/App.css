@@ -4,15 +4,18 @@ body{
   font-family: sans-serif;
   background-image: url(https://wallpaperaccess.com/full/3158925.jpg);
   background-size: 100%;
-
+  background-repeat: no-repeat;
 }
 
 .App {
   text-align: center;
 }
 
+/* SIGNUP/SIGN IN */
+
 .signup-form , .signin-form{
-  width: 300px;
+  width: 40vw;
+
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
   background: white;
   padding: 20px;
@@ -54,3 +57,7 @@ button{
   box-shadow: 0 0 10px rgba(0,0,0,0.8);
   border-radius: 50%;
 }
+
+/* ------------------------------------------------------------ */
+
+/*  */
