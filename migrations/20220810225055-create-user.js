@@ -30,14 +30,6 @@ module.exports = {
       isHunter: {
         type: Sequelize.BOOLEAN
       },
-      profileId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'profiles',
-          key: 'id'
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
