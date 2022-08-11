@@ -47,54 +47,54 @@ function SignUp(props) {
           Profile
         </Link>
       </nav>
-      <h1>Sign Up</h1>
       <div className="signup-container">
         <div className="signup-background">
           <form className="signup-form" onSubmit={handleSubmit}>
+          <img className="signup-img"src="https://i.ibb.co/x7f4nz8/Rabido-Logo.png" alt="Rabido-Logo" border="0"/>
+            <h1>Sign Up</h1>
+            <hr></hr>
             <div className="input-wrapper">
-              <label htmlFor="name">Name</label>
               <input
                 onChange={handleChange}
                 name="name"
                 type="text"
-                placeholder="John Smith"
+                placeholder="Name"
                 value={formValues.name}
                 required
               />
             </div>
             <div className="input-wrapper">
-              <label htmlFor="email">Email</label>
               <input
                 onChange={handleChange}
                 name="email"
                 type="email"
-                placeholder="example@example.com"
+                placeholder="Email"
                 value={formValues.email}
                 required
               />
             </div>
 
             <div className="input-wrapper">
-              <label htmlFor="password">Password</label>
               <input
                 onChange={handleChange}
                 type="password"
                 name="password"
+                placeholder="Password"
                 value={formValues.password}
                 required
               />
             </div>
             <div className="input-wrapper">
-              <label htmlFor="confirmPassword">Confirm Password</label>
               <input
                 onChange={handleChange}
                 type="password"
                 name="confirmPassword"
+                placeholder="Confirm Password"
                 value={formValues.confirmPassword}
                 required
               />
             </div>
-            <button
+            <button className="signup-btn"
               disabled={
                 !formValues.email ||
                 (!formValues.password &&
@@ -103,6 +103,12 @@ function SignUp(props) {
             >
               Sign Up
             </button>
+            <hr></hr>
+            <div className="link-switch">
+                <Link className="link" to="/">
+                Already have an account?
+                </Link>
+            </div>
           </form>
         </div>
       </div>

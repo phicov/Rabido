@@ -37,28 +37,28 @@ function SignIn(props) {
           Profile
         </Link>
       </nav>
-      <h1>Sign In</h1>
-
       <div className="signin-container">
         <div className="signin-background">
           <form className="signin-form" onSubmit={handleSubmit}>
+          <img className="signin-img"src="https://i.ibb.co/x7f4nz8/Rabido-Logo.png" alt="Rabido-Logo" border="0"/>
+          <h1>Sign In</h1>
+          <hr></hr>
             <div className="input-wrapper">
-              <label htmlFor="email">Email</label>
               <input
                 onChange={handleChange}
                 name="email"
                 type="email"
-                placeholder="example@example.com"
+                placeholder="Email"
                 value={formValues.email}
                 required
               />
             </div>
             <div className="input-wrapper">
-              <label htmlFor="password">Password</label>
               <input
                 onChange={handleChange}
                 type="password"
                 name="password"
+                placeholder="Password"
                 value={formValues.password}
                 required
               />
@@ -66,6 +66,12 @@ function SignIn(props) {
             <button disabled={!formValues.email || !formValues.password}>
               Sign In
             </button>
+            <hr></hr>
+            <div className="link-switch">
+                <Link className="link" to="/signup">
+                Don't have an account?
+                </Link>
+            </div>
           </form>
         </div>
       </div>
