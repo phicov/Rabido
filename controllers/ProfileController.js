@@ -1,0 +1,62 @@
+const { Profile, Skill } = require("../models")
+
+const GetProfiles = async (req, res) => {
+  try {
+    const profiles = await Profile.findAll()
+    res.send(profiles)
+  } catch (error) {
+    throw error
+  }
+}
+
+const GetProfile = async (req, res) => {
+  try {
+    const profile = await Profile.findByPk(req.params.profile_id, {
+      include: [{ model: Skill, as: "skills" }],
+    })
+    res.send(profile)
+  } catch (error) {
+    throw error
+  }
+}
+
+const CreateProfile = async (req, res) => {
+  try {
+    const newProfile = await new Profile(req.body)
+    await newProfile.save()
+    res.send(newProfile)
+  } catch (error) {
+    throw error
+  }
+}
+
+const UpdateProfile = async (req, res) => {
+  try {
+    let profileId = parseInt(req.params.profile_id)
+    let updatedProfile = await Profile.update(req.body, {
+      where: { id: profileId },
+      returning: true,
+    })
+    res.send(updatedProfile)
+  } catch (error) {
+    throw error
+  }
+}
+
+const DeleteProfile = async (req, res) => {
+  let profileId = parseInt(req.params.profile_id)
+  await Profile.destroy({ where: { id: profileId } })
+  res.send({ message: `Deleted profile with an id of ${profileId}` })
+  try {
+  } catch (error) {
+    throw error
+  }
+}
+
+module.exports = {
+  GetProfiles,
+  GetProfile,
+  CreateProfile,
+  UpdateProfile,
+  DeleteProfile,
+}
