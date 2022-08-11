@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-function Profile(props) {
+function Category(props) {
   return (
     <div>
       <nav>
@@ -18,9 +18,9 @@ function Profile(props) {
           Sign Out
         </Link>
       </nav>
-      <h1>Profile</h1>
+      <h1>Category</h1>
     </div>
   )
 }
 
-export default Profile
+export default Category
