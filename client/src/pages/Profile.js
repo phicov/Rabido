@@ -1,7 +1,6 @@
-import React from "react"
-import { Link } from "react-router-dom"
-
-
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Nav from '../components/Nav'
 
 function Profile(props) {
   return (
@@ -20,9 +19,7 @@ function Profile(props) {
           Sign Out
         </Link>
       </nav>
-      <nav>
-        
-      </nav>
+
         <div className="profileContainer">
           <div className="profileForm">
               <img className="profilePic" src="https://i.pinimg.com/280x280_RS/af/9d/d5/af9dd5f2d044b2f9c3c1521f8973c5a8.jpg"/>
@@ -37,9 +34,10 @@ function Profile(props) {
                 <div className="projectBox">
                 </div>
               </div>
-          </div>
 
+          </div>
         </div>
+      </div>
     </div>
   )
 }

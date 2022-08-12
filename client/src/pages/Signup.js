@@ -1,17 +1,17 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { useState } from "react"
-import { RegisterUser } from "../services/Auth"
-import { useNavigate } from "react-router-dom"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { RegisterUser } from '../services/Auth'
+import { useNavigate } from 'react-router-dom'
 
 function SignUp(props) {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
-    username: "",
-    email: "",
-    password: "",
-    city: "",
-    isHunter: "",
+    username: '',
+    email: '',
+    password: '',
+    city: '',
+    isHunter: ''
   })
 
   const handleChange = (e) => {
@@ -26,16 +26,16 @@ function SignUp(props) {
       email: formValues.email,
       password: formValues.password,
       city: formValues.city,
-      isHunter: formValues.isHunter,
+      isHunter: formValues.isHunter
     })
     setFormValues({
-      username: "",
-      email: "",
-      password: "",
-      city: "",
-      isHunter: "",
+      username: '',
+      email: '',
+      password: '',
+      city: '',
+      isHunter: ''
     })
-    navigate("/signin")
+    navigate('/')
   }
 
   return (
