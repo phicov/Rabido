@@ -25,7 +25,18 @@ const GetProfileBySkill = async (req, res) => {
   }
 }
 
+const CreateSkill = async (req, res) => {
+  try {
+    const newSkill = await new Skill(req.body)
+    await newSkill.save()
+    res.send(newSkill)
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   GetSkills,
   GetProfileBySkill,
+  CreateSkill,
 }
