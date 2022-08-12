@@ -22,7 +22,8 @@ function SignIn(props) {
   }
 
   return (
-    <div>
+  
+    <div className="signInBody">
       <nav>
         <Link className="link" to="/signup">
           Sign Up

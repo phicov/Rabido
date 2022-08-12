@@ -1,16 +1,34 @@
-body{
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-image: url(https://wallpaperaccess.com/full/3158925.jpg);
-  background-size: 1500px;
+/* Box Icons */
+
+/* Root */
+:root{
+  --header-height: 3rem;
+  --nav-width: 324px;
+
+
+
+--first-color: rgb(53, 126, 228);
 }
 
-.App {
-  text-align: center;
-}
+
+
 
 /* SIGNUP/SIGN IN */
+
+.signUpBody{
+  margin: 0;
+  padding: 0 0 12px 0;
+  font-family: sans-serif;
+  background-image: url(https://wallpaperaccess.com/full/3158925.jpg);
+  background-size: 1800px;
+}
+.signInBody{
+  margin: 0;
+  padding: 0 0 163px 0;
+  font-family: sans-serif;
+  background-image: url(https://wallpaperaccess.com/full/3158925.jpg);
+  background-size: 1800px;
+}
 
 .signup-form , .signin-form{
   width: 35vw;
@@ -23,7 +41,7 @@ body{
 }
 
 .signup-form h1, .signin-form h1{
-  color:rgb(53, 126, 228)
+  color: var(--first-color)
 }
 
 .input-wrapper input{
@@ -74,4 +92,3 @@ button{
 /* ------------------------------------------------------------ */
 
 /*  PROFILE PAGE  */
-
