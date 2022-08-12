@@ -2,7 +2,9 @@ const { Profile, Skill } = require("../models")
 
 const GetProfiles = async (req, res) => {
   try {
-    const profiles = await Profile.findAll()
+    const profiles = await Profile.findAll({
+      include: [{ model: Skill, attributes: ["name"] }],
+    })
     res.send(profiles)
   } catch (error) {
     throw error
