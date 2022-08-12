@@ -9,6 +9,7 @@ import Category from "./pages/Category"
 import ProfilesByCategory from "./pages/ProfilesByCategory"
 import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
+import 'boxicons'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)

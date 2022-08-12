@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 /* Root */
 :root{
@@ -18,7 +19,7 @@
   --first-color-ligthen: rgb(153, 196, 255);
 
   /* Font and Typography */
-  --body-font: 'sans-serif';
+  --body-font: 'poppins','sans-serif';
   --h1-font-size: 1.5rem;
   --h2-font-size:1.25rem;
   --h3-font-size:1rem;
@@ -26,6 +27,7 @@
   --small-font-size:.813rem;
   --smaller-font-size:.75rem;
 
+  
   /* Margins */
   --mb-1: .5rem;
   --mb-2: 1rem;
@@ -80,18 +82,7 @@ ul{
  list-style:none;
 }
 
-.link{
-  text-decoration: none;
-  color:var(--text-color);
-  margin-right: 30px;
-}
 
-nav {
-  text-align: right;
-  background-color: rgb(255, 255, 254);
-  padding: 10px;
-  box-shadow: 5px 5px 5px 1px rgb(0, 0, 0, 0.3);
-}
 
 
 img{
@@ -120,6 +111,36 @@ img{
   font-weight: var(--font-bold);
   margin-bottom: .25rem;
 }
+
+/* NAV BAR */
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 0 5px 5px 1px rgba(0,0,0,0.3);
+  background-color: white;
+  list-style-type: none;
+}
+
+
+.link{
+  display: flex;
+  padding: 2vh;
+  align-items: center;
+  text-decoration: none;
+  color:var(--text-color);
+  margin-right: 30px;
+
+}
+
+.link:hover , .signup-btn:hover, .signin-btn:hover, .hunterLabel:hover{
+  transition-duration: 0.2s;
+  animation: ease-in-out;
+  transform: scale(1.1);
+  color: var(--first-color-light)
+}
+
+
 
 /* SIGNUP/SIGN IN */
 
@@ -200,3 +221,45 @@ button{
 /* ------------------------------------------------------------ */
 
 /*  PROFILE PAGE  */
+
+.profilePic{
+display: flex;
+margin: 30px;
+width: 20vw;
+border-radius: 50%;
+box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+}
+
+.realName{
+display: flex;
+justify-content: center;
+margin-top: 1;
+}
+
+.userName{
+
+}
+
+.contact{
+
+}
+
+.rates{
+
+}
+
+.skills{
+
+}
+
+.location{
+
+}
+
+.about{
+
+}
+
+.projectBox{
+
+}
