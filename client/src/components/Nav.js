@@ -5,6 +5,7 @@ import "./Nav.css"
 function Nav(props) {
   return (
     <nav>
+
       <Link className="link" to="/feed">
         Feed
       </Link>

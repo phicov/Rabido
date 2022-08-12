@@ -12,7 +12,7 @@ const GetProfiles = async (req, res) => {
 const GetProfile = async (req, res) => {
   try {
     const profile = await Profile.findByPk(req.params.profile_id, {
-      include: [{ model: Skill, as: "skills" }],
+      include: [{ model: Skill, attributes: ["name"] }],
     })
     res.send(profile)
   } catch (error) {
