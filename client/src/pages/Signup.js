@@ -7,10 +7,11 @@ import { useNavigate } from "react-router-dom"
 function SignUp(props) {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    city: "",
+    isHunter: "",
   })
 
   const handleChange = (e) => {
@@ -21,106 +22,115 @@ function SignUp(props) {
     e.preventDefault()
 
     await RegisterUser({
-      name: formValues.name,
+      username: formValues.username,
       email: formValues.email,
       password: formValues.password,
+      city: formValues.city,
+      isHunter: formValues.isHunter,
     })
     setFormValues({
-      name: "",
+      username: "",
       email: "",
       password: "",
-      confirmPassword: "",
+      city: "",
+      isHunter: "",
     })
     navigate("/signin")
   }
 
   return (
-  <div className="signUpBody">
-    <div>
-      <nav>
-        <Link className="link" to="/">
-          Sign In
-        </Link>
-      </nav>
-      <div className="signup-container">
-        <div className="signup-background">
-          <form className="signup-form" onSubmit={handleSubmit}>
-          <img className="signup-img"src="https://i.ibb.co/x7f4nz8/Rabido-Logo.png" alt="Rabido-Logo" border="0"/>
-            <h1>Sign Up</h1>
-            <hr></hr>
-            <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                name="name"
-                type="text"
-                placeholder="Name"
-                value={formValues.name}
-                required
+    <div className="signUpBody">
+      <div>
+        <nav>
+          <Link className="link" to="/">
+            Sign In
+          </Link>
+        </nav>
+        <div className="signup-container">
+          <div className="signup-background">
+            <form className="signup-form" onSubmit={handleSubmit}>
+              <img
+                className="signup-img"
+                src="https://i.ibb.co/x7f4nz8/Rabido-Logo.png"
+                alt="Rabido-Logo"
+                border="0"
               />
-            </div>
-            <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                name="email"
-                type="email"
-                placeholder="Email"
-                value={formValues.email}
-                required
-              />
-            </div>
-
-            <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={formValues.password}
-                required
-              />
-            </div>
-            <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                value={formValues.confirmPassword}
-                required
-              />
-              </div>
-              <div className="hunterInput">
-              <label className="hunterLabel">
+              <h1>Sign Up</h1>
+              <hr></hr>
+              <div className="input-wrapper">
                 <input
                   onChange={handleChange}
-                  type="checkbox"
-                  name="hunterCheck"
-                  value={formValues.hunterCheck}
+                  name="username"
+                  type="text"
+                  placeholder="Userame"
+                  value={formValues.username}
                   required
                 />
-                <span className="hunterText">Hunter?</span>
-              </label>
               </div>
-              <button className="signup-btn"
-              disabled={
-                !formValues.email ||
-                (!formValues.password &&
-                  formValues.confirmPassword === formValues.password)
-              }
-            >
-              Sign Up
-            </button>
-            <hr></hr>
-            <div className="link-switch">
+              <div className="input-wrapper">
+                <input
+                  onChange={handleChange}
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  value={formValues.email}
+                  required
+                />
+              </div>
+
+              <div className="input-wrapper">
+                <input
+                  onChange={handleChange}
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={formValues.password}
+                  required
+                />
+              </div>
+              <div className="input-wrapper">
+                <input
+                  onChange={handleChange}
+                  type="text"
+                  name="city"
+                  placeholder="City"
+                  value={formValues.city}
+                  required
+                />
+              </div>
+              <div className="hunterInput">
+                <label className="hunterLabel">
+                  <input
+                    onChange={handleChange}
+                    type="checkbox"
+                    name="hunterCheck"
+                    value={formValues.hunterCheck}
+                    required
+                  />
+                  <span className="hunterText">Hunter?</span>
+                </label>
+              </div>
+              <button
+                className="signup-btn"
+                disabled={
+                  !formValues.email ||
+                  (!formValues.password &&
+                    formValues.confirmPassword === formValues.password)
+                }
+              >
+                Sign Up
+              </button>
+              <hr></hr>
+              <div className="link-switch">
                 <Link className="link" to="/">
-                Already have an account?
+                  Already have an account?
                 </Link>
-            </div>
-          </form>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   )
 }
 
