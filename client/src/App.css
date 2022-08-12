@@ -117,7 +117,7 @@ img{
 nav {
   display: flex;
   justify-content: flex-end;
-  box-shadow: 0 5px 5px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 5px 1px rgba(0,0,0,0.3);
   background-color: white;
   list-style-type: none;
 }
@@ -221,3 +221,45 @@ button{
 /* ------------------------------------------------------------ */
 
 /*  PROFILE PAGE  */
+
+.profilePic{
+display: flex;
+margin: 30px;
+width: 20vw;
+border-radius: 50%;
+box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+}
+
+.realName{
+display: flex;
+justify-content: center;
+margin-top: 1;
+}
+
+.userName{
+
+}
+
+.contact{
+
+}
+
+.rates{
+
+}
+
+.skills{
+
+}
+
+.location{
+
+}
+
+.about{
+
+}
+
+.projectBox{
+
+}
