@@ -1,17 +1,125 @@
-/* Box Icons */
 
 /* Root */
 :root{
   --header-height: 3rem;
   --nav-width: 324px;
 
+  /* Font Weight */
+  --font-medium:500;
+  --font-semi-bold:600;
+  --font-bold:700;
 
+  /* Colors */
+  --first-color: rgb(53, 126, 228);
+  --first-color-dark: rgb(41, 101, 185);
+  --first-color-darken: rgb(21, 53, 98);
+  --text-color: rgb(0, 0, 0);
+  --first-color-light: rgb(104, 151, 218);
+  --first-color-ligthen: rgb(153, 196, 255);
 
---first-color: rgb(53, 126, 228);
+  /* Font and Typography */
+  --body-font: 'sans-serif';
+  --h1-font-size: 1.5rem;
+  --h2-font-size:1.25rem;
+  --h3-font-size:1rem;
+  --normal-font-size:.938rem;
+  --small-font-size:.813rem;
+  --smaller-font-size:.75rem;
+
+  /* Margins */
+  --mb-1: .5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+
+  /* z index */
+  --z-fixed:100;
+}
+
+@media screen and (min-width:768px){
+  :root{  
+    --h1-font-size: 2.25rem;
+    --h2-font-size:1.5rem;
+    --h3-font-size:1.25rem;
+    --normal-font-size:1rem;
+    --small-font-size:.875rem;
+    --smaller-font-size:.813rem;
+  }
+}
+  
+/* BASE */
+*,::before, ::after{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  background-color: var(--first-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1,h2,h3,p{
+  margin:0;
+}
+h3{
+  font-weight: font var(--font-semi-bold);
+}
+
+ul{
+ margin:0;
+ padding: 0;
+ list-style:none;
+}
+
+.link{
+  text-decoration: none;
+  color:var(--text-color);
+  margin-right: 30px;
+}
+
+nav {
+  text-align: right;
+  background-color: rgb(255, 255, 254);
+  padding: 10px;
+  box-shadow: 5px 5px 5px 1px rgb(0, 0, 0, 0.3);
 }
 
 
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
+/* Class CSS */
+.section{
+  padding: 4rem 0 2rem;
+}
+
+.section-title{
+  font-size: var(--h1-font-size);
+  color: var(--first-color);
+  margin-bottom: var(--mb-3);
+  text-align: center;
+}
+
+.section-subtitle{
+  display: block;
+  font-size: var(--small-font-size);
+  color: var(--first-color-darken);
+  text-align: center;
+  font-weight: var(--font-bold);
+  margin-bottom: .25rem;
+}
 
 /* SIGNUP/SIGN IN */
 
