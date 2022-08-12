@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom'
 
 const Nav = ({ authenticated, user, handleLogOut }) => {
@@ -30,6 +31,13 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
         Categories
       </Link>
       <Link to="/signin">Sign In</Link>
+      <Link className="link" to="/profile">
+        Profile
+      </Link>
+      <Link className="link" to="/">
+        Sign Out
+      </Link>
+      </div>
     </nav>
   )
 

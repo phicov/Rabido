@@ -41,11 +41,20 @@ function SignUp(props) {
   return (
     <div className="signUpBody">
       <div>
-        <nav>
-          <Link className="link" to="/">
-            Sign In
-          </Link>
-        </nav>
+      <nav>
+        <Link className="link" to="/feed">
+          Feed
+        </Link>
+        <Link className="link" to="/categories">
+          Categories
+        </Link>
+        <Link className="link" to="/profile">
+          Profile
+        </Link>
+        <Link className="link" to="/">
+          Sign Out
+        </Link>
+      </nav>
         <div className="signup-container">
           <div className="signup-background">
             <form className="signup-form" onSubmit={handleSubmit}>
@@ -62,7 +71,7 @@ function SignUp(props) {
                   onChange={handleChange}
                   name="username"
                   type="text"
-                  placeholder="Userame"
+                  placeholder="Username"
                   value={formValues.username}
                   required
                 />

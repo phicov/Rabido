@@ -24,8 +24,17 @@ function SignIn(props) {
   return (
     <div className="signInBody">
       <nav>
-        <Link className="link" to="/signup">
-          Sign Up
+        <Link className="link" to="/feed">
+          Feed
+        </Link>
+        <Link className="link" to="/categories">
+          Categories
+        </Link>
+        <Link className="link" to="/profile">
+          Profile
+        </Link>
+        <Link className="link" to="/">
+          Sign Out
         </Link>
       </nav>
       <div className="signin-container">
@@ -59,7 +68,7 @@ function SignIn(props) {
                 required
               />
             </div>
-            <button disabled={!formValues.username || !formValues.password}>
+            <button className= "signin-btn" disabled={!formValues.username || !formValues.password}>
               Sign In
             </button>
             <hr></hr>

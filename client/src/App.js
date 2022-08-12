@@ -1,14 +1,16 @@
-import './App.css'
-import { Route, Routes } from 'react-router'
-import { useState, useEffect } from 'react'
-import { CheckSession } from './services/Auth'
-import Nav from './components/Nav'
-import Feed from './pages/Feed'
-import Profile from './pages/Profile'
-import Category from './pages/Category'
-import ProfilesByCategory from './pages/ProfilesByCategory'
-import SignIn from './pages/SignIn'
-import SignUp from './pages/SignUp'
+import "./App.css"
+import { Route, Routes } from "react-router"
+import { useState, useEffect } from "react"
+import { CheckSession } from "./services/Auth"
+import Nav from "./components/Nav"
+import Feed from "./pages/Feed"
+import Profile from "./pages/Profile"
+import Category from "./pages/Category"
+import ProfilesByCategory from "./pages/ProfilesByCategory"
+import SignIn from "./pages/SignIn"
+import SignUp from "./pages/SignUp"
+import 'boxicons'
+
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
