@@ -12,7 +12,12 @@ const GetSkills = async (req, res) => {
 const GetProfileBySkill = async (req, res) => {
   try {
     const profileBySkill = await Skill.findAll({
-      include: [{ model: Profile, as: "profiles" }],
+      include: [
+        {
+          model: Profile,
+          attributes: ["name", "image", "city", "rate", "projects"],
+        },
+      ],
     })
     res.send(profileBySkill)
   } catch (error) {
