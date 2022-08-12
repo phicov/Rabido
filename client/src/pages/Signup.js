@@ -87,8 +87,20 @@ function SignUp(props) {
                 value={formValues.confirmPassword}
                 required
               />
-            </div>
-            <button className="signup-btn"
+              </div>
+              <div className="hunterInput">
+              <label className="hunterLabel">
+                <input
+                  onChange={handleChange}
+                  type="checkbox"
+                  name="hunterCheck"
+                  value={formValues.hunterCheck}
+                  required
+                />
+                <span className="hunterText">Hunter?</span>
+              </label>
+              </div>
+              <button className="signup-btn"
               disabled={
                 !formValues.email ||
                 (!formValues.password &&

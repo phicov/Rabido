@@ -17,7 +17,7 @@ body{
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
   background: white;
   padding: 20px;
-  margin: 9% auto 0;
+  margin: 7% auto 0;
   text-align: center;
   border-radius: 30px;
 }
@@ -56,72 +56,22 @@ button{
   border-radius: 50%;
 }
 
+.hunterLabel{
+  display:flex
+}
+
+.hunterLabel{
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.hunterInput{
+  align-items: center;
+  justify-content: center;
+}
+
 /* ------------------------------------------------------------ */
 
 /*  PROFILE PAGE  */
 
-.profileContainer{
-  width: 1200px;
-  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
-  background: white;
-  padding: 50px;
-  margin: 2% auto 0;
-  text-align: center;
-  border-radius: 30px;
-}
-
-.profilePic{
-  display: flex;
-  width: 175px;
-  border-radius: 50%;
-}
-
-.realName{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  transform: translateY(-190px);
-}
-
-.userName{
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  transform: translateY(-210px);
-}
-
-.contact{
-  display: flex;
-  justify-content: center;
-  transform: translateY(-240px);
-}
-
-.rates{
-  display: flex;
-  transform: translateY(-130px);
-}
-
-.line1{
-  display: flex;
-  width: 900px;
-  transform: translate3d(75px,-225px,0);
-}
-
-
-.skills{
-display: flex;
-transform: translateY(-40px);
-}
-  
-.location{
-  display: flex;
-  justify-content: center;
-  transform: translateY(-330px);
-}
-
-.about{
-  display: flex;
-  transform: translate3d(150px,-251px,0);
-  border: 1px solid black;
-  padding: 10px 0;
-}
