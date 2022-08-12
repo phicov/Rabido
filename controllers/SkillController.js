@@ -35,8 +35,19 @@ const CreateSkill = async (req, res) => {
   }
 }
 
+const DeleteSkill = async (req, res) => {
+  let skillId = parseInt(req.params.skill_id)
+  await Skill.destroy({ where: { id: skillId } })
+  res.send({ message: `Deleted profile with an id of ${skillId}` })
+  try {
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   GetSkills,
   GetProfileBySkill,
   CreateSkill,
+  DeleteSkill,
 }
