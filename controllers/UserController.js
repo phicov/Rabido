@@ -9,6 +9,15 @@ const GetUsers = async (req, res) => {
   }
 }
 
+const GetUser = async (req, res) => {
+  try {
+    const user = await User.findByPk(req.params.user_id)
+    res.send(user)
+  } catch (error) {
+    throw error
+  }
+}
+
 const CreateUser = async (req, res) => {
   try {
     const newUser = await new User(req.body)
@@ -21,5 +30,6 @@ const CreateUser = async (req, res) => {
 
 module.exports = {
   GetUsers,
+  GetUser,
   CreateUser,
 }
