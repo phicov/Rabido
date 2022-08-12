@@ -4,5 +4,6 @@ const controller = require("../controllers/SkillController")
 Router.get("/get-skills", controller.GetSkills)
 Router.get("/get-profilebyskill", controller.GetProfileBySkill)
 Router.post("/new-skill", controller.CreateSkill)
+Router.delete("/:skill_id", controller.DeleteSkill)
 
 module.exports = Router
