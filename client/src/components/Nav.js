@@ -1,24 +1,40 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
+const Nav = ({ authenticated, user, handleLogOut }) => {
+  let authenticatedOptions
+  if (user) {
+    authenticatedOptions = (
+      <nav>
+        <Link className="link" to="/feed">
+          Feed
+        </Link>
+        <Link className="link" to="/categories">
+          Categories
+        </Link>
+        <Link className="link" to="/profile">
+          Profile
+        </Link>
+        <Link className="link" onClick={handleLogOut} to="/">
+          Sign Out
+        </Link>
+      </nav>
+    )
+  }
 
-function Nav(props) {
-  return (
+  const publicOptions = (
     <nav>
-
       <Link className="link" to="/feed">
         Feed
       </Link>
       <Link className="link" to="/categories">
         Categories
       </Link>
-      <Link className="link" to="/profile">
-        Profile
-      </Link>
-      <Link className="link" to="/">
-        Sign Out
-      </Link>
+      <Link to="/signin">Sign In</Link>
     </nav>
+  )
+
+  return (
+    <div>{authenticated && user ? authenticatedOptions : publicOptions}</div>
   )
 }
 

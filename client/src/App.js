@@ -1,14 +1,14 @@
-import "./App.css"
-import { Route, Routes } from "react-router"
-import { useState, useEffect } from "react"
-import { CheckSession } from "./services/Auth"
-import Nav from "./components/Nav"
-import Feed from "./pages/Feed"
-import Profile from "./pages/Profile"
-import Category from "./pages/Category"
-import ProfilesByCategory from "./pages/ProfilesByCategory"
-import SignIn from "./pages/SignIn"
-import SignUp from "./pages/SignUp"
+import './App.css'
+import { Route, Routes } from 'react-router'
+import { useState, useEffect } from 'react'
+import { CheckSession } from './services/Auth'
+import Nav from './components/Nav'
+import Feed from './pages/Feed'
+import Profile from './pages/Profile'
+import Category from './pages/Category'
+import ProfilesByCategory from './pages/ProfilesByCategory'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -28,7 +28,7 @@ function App() {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem('token')
     if (token) {
       checkToken()
     }
@@ -41,18 +41,33 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<SignIn />}
-            setUser={setUser}
-            toggleAuthenticated={toggleAuthenticated}
+            element={
+              <SignIn
+                setUser={setUser}
+                toggleAuthenticated={toggleAuthenticated}
+              />
+            }
           />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/feed" element={<Feed />} />
           <Route
-            path="/feed"
-            element={<Feed user={user} authenticated={authenticated} />}
+            path="/profile"
+            element={
+              <Profile
+                user={user}
+                authenticated={authenticated}
+                handleLogOut={handleLogOut}
+              />
+            }
           />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/categories" element={<Category />} />
-          <Route path="/category-profile" element={<ProfilesByCategory />} />
+          <Route
+            path="/categories"
+            element={<Category handleLogOut={handleLogOut} />}
+          />
+          <Route
+            path="/category-profile"
+            element={<ProfilesByCategory handleLogOut={handleLogOut} />}
+          />
         </Routes>
       </main>
     </div>
