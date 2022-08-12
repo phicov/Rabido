@@ -35,6 +35,7 @@ function SignUp(props) {
   }
 
   return (
+  <div className="signUpBody">
     <div>
       <nav>
         <Link className="link" to="/">
@@ -119,6 +120,7 @@ function SignUp(props) {
         </div>
       </div>
     </div>
+  </div>
   )
 }
 
