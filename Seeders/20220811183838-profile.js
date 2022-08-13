@@ -1,6 +1,6 @@
-'use strict'
-const falso = require('@ngneat/falso')
-const { Skill } = require('../models')
+"use strict"
+const falso = require("@ngneat/falso")
+const { Skill } = require("../models")
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -11,19 +11,19 @@ module.exports = {
         name: falso.randFullName(),
         image: falso.randImg(),
         city: falso.randCity(),
-        about: falso.randText({ min: 20, max: 100 }),
+        about: falso.randText({ charCount: 200 }),
         contact: falso.randEmail(),
-        rate: falso.randAmount(),
-        projects: falso.randJobDescriptor({ min: 1, max: 8 }),
+        rate: falso.randAmount({ symbol: "$", min: 25, max: 200, fraction: 0 }),
+        projects: falso.randJobDescriptor({ min: 1, max: 20 }),
         skillId: s[r].id,
         createdAt: falso.randPastDate(),
-        updatedAt: falso.randRecentDate()
+        updatedAt: falso.randRecentDate(),
       }
     })
-    await queryInterface.bulkInsert('profiles', profiles)
+    await queryInterface.bulkInsert("profiles", profiles)
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('profiles')
-  }
+    await queryInterface.bulkDelete("profiles")
+  },
 }

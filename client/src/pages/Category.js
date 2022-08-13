@@ -16,7 +16,7 @@ const Category = (props) => {
   }, [])
 
   const getCats = async () => {
-    const res = await axios.get(`${URL}/api/skills/get-skills`)
+    const res = await axios.get(`${URL}/api/cats/get-cats`)
     console.log(res)
     setCats(res.data)
   }
@@ -38,13 +38,13 @@ const Category = (props) => {
       </nav>
       <h1>Category</h1>
       <section className="container-grid">
-        {cats.map((skill) => (
+        {cats.map((cat) => (
           <Catcard
-            key={skill.id}
+            key={cat.id}
             onClick={() => {
-              navigate(`/view/skills/${skill.id}`)
+              navigate(`/view/skills/${cat.id}`)
             }}
-            category={skill.category}
+            category={cat.name}
           />
         ))}
       </section>
