@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Skill.hasMany(models.Profile, { foreignKey: 'skillId' })
+      Skill.belongsTo(models.Category, { foreignKey: 'categoryId' })
     }
   }
   Skill.init(
@@ -17,7 +18,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      category: DataTypes.STRING
+      categoryId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'categories',
+          key: 'id'
+        }
+      }
     },
     {
       sequelize,
