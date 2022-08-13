@@ -34,14 +34,14 @@ module.exports = {
       projects: {
         type: Sequelize.STRING,
       },
-      skillId: {
-        type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
-        references: {
-          model: "skills",
-          key: "id",
-        },
-      },
+      // skillId: {
+      //   type: Sequelize.INTEGER,
+      //   onDelete: "CASCADE",
+      //   references: {
+      //     model: "skills",
+      //     key: "id",
+      //   },
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

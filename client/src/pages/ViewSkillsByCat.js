@@ -5,29 +5,26 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import SkillCard from "../components/SkillCard"
 
 const URL = "http://localhost:3001"
 
-function ViewSkills(props) {
+function ViewSkillsByCat(props) {
   const [skills, setSkills] = useState([])
 
-  let { skillId } = useParams()
-  //   let navigate = useNavigate()
+  let { categoryId } = useParams()
+  let navigate = useNavigate()
 
   useEffect(() => {
     getSkills()
   }, [])
 
   const getSkills = async () => {
-    const res = await axios.get(`${URL}/api/skills/get-skill/${skillId}`)
+    const res = await axios.get(`${URL}/api/skills/get-skills/${categoryId}`)
     console.log(res.data)
-    console.log(res.data.skill.name)
-    setSkills(res.data.skill.name)
+    console.log(res.data.category.Skills)
+    setSkills(res.data.category.Skills)
   }
-
-  //   const getProfile = (profile) => {
-  //     navigate(`/skills/profile${profile.id}`)
-  //   }
 
   return (
     <div>
@@ -46,16 +43,22 @@ function ViewSkills(props) {
         </Link>
       </nav>
       <h1>Skills</h1>
-      <div>
-        {/* {skills.map((s) => (
-          <div key={s.id}>
-            <h5>Skill: {s}</h5>
-          </div>
-        ))} */}
-        <h1>{skills}</h1>
-      </div>
+      <section>
+        <Link className="link" to="/categories">
+          Back To Categories
+        </Link>
+        {skills.map((skill) => (
+          <SkillCard
+            key={skill.id}
+            onClick={() => {
+              navigate(`/get-profiles/${skill.id}`)
+            }}
+            name={skill.name}
+          />
+        ))}
+      </section>
     </div>
   )
 }
 
-export default ViewSkills
+export default ViewSkillsByCat

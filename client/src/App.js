@@ -6,10 +6,10 @@ import Nav from "./components/Nav"
 import Feed from "./pages/Feed"
 import Profile from "./pages/Profile"
 import Category from "./pages/Category"
-import ProfilesByCategory from "./pages/ProfilesByCategory"
 import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
-import ViewSkills from "./components/ViewSkills"
+import ViewSkillsByCat from "./pages/ViewSkillsByCat"
+import ViewProfilesBySkill from "./pages/ViewProfilesBySkill"
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -65,11 +65,11 @@ function App() {
             path="/categories"
             element={<Category handleLogOut={handleLogOut} />}
           />
+          <Route path="/get-skills/:categoryId" element={<ViewSkillsByCat />} />
           <Route
-            path="/category-profile"
-            element={<ProfilesByCategory handleLogOut={handleLogOut} />}
+            path="/get-profiles/:skillId"
+            element={<ViewProfilesBySkill />}
           />
-          <Route path="/view/skills/:skillId" element={<ViewSkills />} />
         </Routes>
       </main>
     </div>

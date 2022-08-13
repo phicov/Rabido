@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-import Catcard from "../components/CatCard"
+import CatCard from "../components/CatCard"
 
 const URL = "http://localhost:3001"
 
@@ -38,13 +38,13 @@ const Category = (props) => {
       </nav>
       <h1>Category</h1>
       <section className="container-grid">
-        {cats.map((cat) => (
-          <Catcard
-            key={cat.id}
+        {cats.map((category) => (
+          <CatCard
+            key={category.id}
             onClick={() => {
-              navigate(`/view/skills/${cat.id}`)
+              navigate(`/get-skills/${category.id}`)
             }}
-            category={cat.name}
+            category={category.name}
           />
         ))}
       </section>
