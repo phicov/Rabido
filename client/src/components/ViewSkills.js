@@ -22,8 +22,8 @@ function ViewSkills(props) {
   const getSkills = async () => {
     const res = await axios.get(`${URL}/api/skills/get-skills/${categoryId}`)
     console.log(res.data)
-    console.log(res.data.category)
-    setSkills(res.data.category)
+    console.log(res.data.category.Skills)
+    setSkills(res.data.category.Skills)
   }
 
   return (
@@ -50,9 +50,7 @@ function ViewSkills(props) {
             onClick={() => {
               navigate(`/get-profiles/${skill.id}`)
             }}
-            name={skill.Skills.map((skillz) => (
-              <div key={skillz.id}>name:{skillz.name}</div>
-            ))}
+            name={skill.name}
           />
         ))}
       </section>

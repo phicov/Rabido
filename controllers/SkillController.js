@@ -24,7 +24,7 @@ const GetSKillsByCat = async (req, res) => {
       include: [
         {
           model: Skill,
-          attributes: ["name"],
+          attributes: ["name", "id"],
         },
       ],
     })
