@@ -5,11 +5,11 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
-import SkillCard from "./SkillCard"
+import SkillCard from "../components/SkillCard"
 
 const URL = "http://localhost:3001"
 
-function ViewSkills(props) {
+function ViewSkillsByCat(props) {
   const [skills, setSkills] = useState([])
 
   let { categoryId } = useParams()
@@ -44,6 +44,9 @@ function ViewSkills(props) {
       </nav>
       <h1>Skills</h1>
       <section>
+        <Link className="link" to="/categories">
+          Back To Categories
+        </Link>
         {skills.map((skill) => (
           <SkillCard
             key={skill.id}
@@ -58,4 +61,4 @@ function ViewSkills(props) {
   )
 }
 
-export default ViewSkills
+export default ViewSkillsByCat

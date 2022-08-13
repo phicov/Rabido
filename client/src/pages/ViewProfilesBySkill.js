@@ -5,11 +5,11 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
-import ProfileCard from "./ProfileCard"
+import ProfileCard from "../components/ProfileCard"
 
 const URL = "http://localhost:3001"
 
-function ViewProfiles(props) {
+function ViewProfilesBySkill(props) {
   const [profiles, setProfiles] = useState([])
 
   let { skillId } = useParams()
@@ -43,6 +43,9 @@ function ViewProfiles(props) {
         </Link>
       </nav>
       <div>
+        <Link className="link" to="/categories">
+          Back To Categories
+        </Link>
         {profiles.map((profile) => (
           <ProfileCard
             key={profile.id}
@@ -60,4 +63,4 @@ function ViewProfiles(props) {
   )
 }
 
-export default ViewProfiles
+export default ViewProfilesBySkill
