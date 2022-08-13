@@ -9,6 +9,15 @@ const GetSkills = async (req, res) => {
   }
 }
 
+const GetSkillById = async (req, res) => {
+  try {
+    const skill = await Skill.findByPk(req.params.skill_id)
+    res.send({ skill })
+  } catch (error) {
+    throw error
+  }
+}
+
 const GetProfileBySkill = async (req, res) => {
   try {
     const profileBySkill = await Skill.findAll({
@@ -47,6 +56,7 @@ const DeleteSkill = async (req, res) => {
 
 module.exports = {
   GetSkills,
+  GetSkillById,
   GetProfileBySkill,
   CreateSkill,
   DeleteSkill,
