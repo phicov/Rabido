@@ -1,5 +1,4 @@
-
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
 const Nav = ({ authenticated, user, handleLogOut }) => {
   let authenticatedOptions
@@ -37,7 +36,6 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
       <Link className="link" to="/">
         Sign Out
       </Link>
-      </div>
     </nav>
   )
 

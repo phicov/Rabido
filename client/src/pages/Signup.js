@@ -1,17 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import { RegisterUser } from '../services/Auth'
-import { useNavigate } from 'react-router-dom'
+import React from "react"
+import { Link } from "react-router-dom"
+import { useState } from "react"
+import { RegisterUser } from "../services/Auth"
+import { useNavigate } from "react-router-dom"
 
 function SignUp(props) {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
-    username: '',
-    email: '',
-    password: '',
-    city: '',
-    isHunter: ''
+    username: "",
+    email: "",
+    password: "",
+    city: "",
+    isHunter: "",
   })
 
   const handleChange = (e) => {
@@ -26,35 +26,35 @@ function SignUp(props) {
       email: formValues.email,
       password: formValues.password,
       city: formValues.city,
-      isHunter: formValues.isHunter
+      isHunter: formValues.isHunter,
     })
     setFormValues({
-      username: '',
-      email: '',
-      password: '',
-      city: '',
-      isHunter: ''
+      username: "",
+      email: "",
+      password: "",
+      city: "",
+      isHunter: "",
     })
-    navigate('/')
+    navigate("/")
   }
 
   return (
     <div className="signUpBody">
       <div>
-      <nav>
-        <Link className="link" to="/feed">
-          Feed
-        </Link>
-        <Link className="link" to="/categories">
-          Categories
-        </Link>
-        <Link className="link" to="/profile">
-          Profile
-        </Link>
-        <Link className="link" to="/">
-          Sign Out
-        </Link>
-      </nav>
+        <nav>
+          <Link className="link" to="/feed">
+            Feed
+          </Link>
+          <Link className="link" to="/categories">
+            Categories
+          </Link>
+          <Link className="link" to="/profile">
+            Profile
+          </Link>
+          <Link className="link" to="/">
+            Sign Out
+          </Link>
+        </nav>
         <div className="signup-container">
           <div className="signup-background">
             <form className="signup-form" onSubmit={handleSubmit}>

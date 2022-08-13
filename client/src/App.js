@@ -9,8 +9,7 @@ import Category from "./pages/Category"
 import ProfilesByCategory from "./pages/ProfilesByCategory"
 import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
-import 'boxicons'
-
+import ViewSkills from "./components/ViewSkills"
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -30,7 +29,7 @@ function App() {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem("token")
     if (token) {
       checkToken()
     }
@@ -70,6 +69,7 @@ function App() {
             path="/category-profile"
             element={<ProfilesByCategory handleLogOut={handleLogOut} />}
           />
+          <Route path="/view/skills/:skillId" element={<ViewSkills />} />
         </Routes>
       </main>
     </div>
