@@ -5,7 +5,7 @@ const { Skill } = require("../models")
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const s = await Skill.findAll({ raw: true })
-    let profiles = [...Array(40)].map((_) => {
+    let profiles = [...Array(200)].map((_) => {
       let r = Math.floor(Math.random() * s.length)
       return {
         name: falso.randFullName(),
