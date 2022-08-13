@@ -14,7 +14,7 @@ module.exports = {
         about: falso.randText({ charCount: 200 }),
         contact: falso.randEmail(),
         rate: falso.randAmount({ symbol: "$", min: 25, max: 200, fraction: 0 }),
-        projects: falso.randJobDescriptor({ min: 1, max: 20 }),
+        projects: falso.randCatchPhrase({ min: 2, max: 8 }),
         skillId: s[r].id,
         createdAt: falso.randPastDate(),
         updatedAt: falso.randRecentDate(),

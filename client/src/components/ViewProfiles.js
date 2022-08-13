@@ -5,25 +5,25 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
-import SkillCard from "./SkillCard"
+import ProfileCard from "./ProfileCard"
 
 const URL = "http://localhost:3001"
 
-function ViewSkills(props) {
-  const [skills, setSkills] = useState([])
+function ViewProfiles(props) {
+  const [profiles, setProfiles] = useState([])
 
-  let { categoryId } = useParams()
+  let { skillId } = useParams()
   let navigate = useNavigate()
 
   useEffect(() => {
-    getSkills()
+    getProfiles()
   }, [])
 
-  const getSkills = async () => {
-    const res = await axios.get(`${URL}/api/skills/get-skills/${categoryId}`)
+  const getProfiles = async () => {
+    const res = await axios.get(`${URL}/api/profiles/get-profiles/${skillId}`)
     console.log(res.data)
-    console.log(res.data.category)
-    setSkills(res.data.category)
+    console.log(res.data.profiles.Profiles)
+    setProfiles(res.data.profiles.Profiles)
   }
 
   return (
@@ -42,22 +42,22 @@ function ViewSkills(props) {
           Sign Out
         </Link>
       </nav>
-      <h1>Skills</h1>
-      <section>
-        {skills.map((skill) => (
-          <SkillCard
-            key={skill.id}
-            onClick={() => {
-              navigate(`/get-profiles/${skill.id}`)
-            }}
-            name={skill.Skills.map((skillz) => (
-              <div key={skillz.id}>name:{skillz.name}</div>
-            ))}
+      <div>
+        {profiles.map((profile) => (
+          <ProfileCard
+            key={profile.id}
+            name={profile.name}
+            image={profile.image}
+            city={profile.city}
+            about={profile.about}
+            contact={profile.contact}
+            rate={profile.rate}
+            projects={profile.projects}
           />
         ))}
-      </section>
+      </div>
     </div>
   )
 }
 
-export default ViewSkills
+export default ViewProfiles

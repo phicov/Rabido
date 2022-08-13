@@ -12,14 +12,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      categoryId: {
-        type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
-        references: {
-          model: "categories",
-          key: "id",
-        },
-      },
+      // categoryId: {
+      //   type: Sequelize.INTEGER,
+      //   onDelete: "CASCADE",
+      //   references: {
+      //     model: "categories",
+      //     key: "id",
+      //   },
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -1,4 +1,4 @@
-const { Skill, Profile } = require("../models")
+const { Skill, Profile, Category } = require("../models")
 
 const GetSkills = async (req, res) => {
   try {
@@ -13,6 +13,22 @@ const GetSkillById = async (req, res) => {
   try {
     const skill = await Skill.findByPk(req.params.skill_id)
     res.send({ skill })
+  } catch (error) {
+    throw error
+  }
+}
+
+const GetSKillsByCat = async (req, res) => {
+  try {
+    const category = await Category.findByPk(req.params.category_id, {
+      include: [
+        {
+          model: Skill,
+          attributes: ["name"],
+        },
+      ],
+    })
+    res.send({ category })
   } catch (error) {
     throw error
   }
@@ -57,6 +73,7 @@ const DeleteSkill = async (req, res) => {
 module.exports = {
   GetSkills,
   GetSkillById,
+  GetSKillsByCat,
   GetProfileBySkill,
   CreateSkill,
   DeleteSkill,
