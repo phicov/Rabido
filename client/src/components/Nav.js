@@ -29,7 +29,6 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
       <Link className="link" to="/categories">
         Categories
       </Link>
-      <Link to="/signin">Sign In</Link>
       <Link className="link" to="/profile">
         Profile
       </Link>
