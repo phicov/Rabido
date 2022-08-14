@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 const Nav = ({ authenticated, user, handleLogOut }) => {
   let authenticatedOptions
   if (user) {
     authenticatedOptions = (
       <nav>
+        <h1>Welcome {user.username}!</h1>
         <Link className="link" to="/feed">
           Feed
         </Link>
@@ -28,9 +29,6 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
       </Link>
       <Link className="link" to="/categories">
         Categories
-      </Link>
-      <Link className="link" to="/profile">
-        Profile
       </Link>
       <Link className="link" to="/">
         Sign Out
