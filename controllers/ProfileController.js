@@ -11,7 +11,7 @@ const GetProfiles = async (req, res) => {
   }
 }
 
-const GetProfile = async (req, res) => {
+const GetProfileById = async (req, res) => {
   try {
     const profile = await Profile.findByPk(req.params.profile_id, {
       include: [{ model: Skill, attributes: ["name"] }],
@@ -33,7 +33,7 @@ const GetProfilesBySkill = async (req, res) => {
             "image",
             "city",
             "about",
-            "email",
+            "contact",
             "rate",
             "projects",
           ],
@@ -81,7 +81,7 @@ const DeleteProfile = async (req, res) => {
 
 module.exports = {
   GetProfiles,
-  GetProfile,
+  GetProfileById,
   GetProfilesBySkill,
   CreateProfile,
   UpdateProfile,

@@ -7,7 +7,7 @@ import Feed from "./pages/Feed"
 import Profile from "./pages/Profile"
 import Category from "./pages/Category"
 import SignIn from "./pages/SignIn"
-import SignUp from "./pages/SignUp"
+import Signup from "./pages/Signup"
 import ViewSkillsByCat from "./pages/ViewSkillsByCat"
 import ViewProfilesBySkill from "./pages/ViewProfilesBySkill"
 
@@ -51,7 +51,7 @@ function App() {
               />
             }
           />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/feed" element={<Feed />} />
           <Route
             path="/profile"

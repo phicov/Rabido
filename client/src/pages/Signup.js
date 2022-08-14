@@ -1,20 +1,20 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import { RegisterUser } from '../services/Auth'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import React from "react"
+import { Link } from "react-router-dom"
+import { useState } from "react"
+import { RegisterUser } from "../services/Auth"
+import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
-const URL = 'http://localhost:3001'
+const URL = "http://localhost:3001"
 
-function SignUp(props) {
+function Signup(props) {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
-    username: '',
-    email: '',
-    password: '',
-    city: '',
-    isHunter: false
+    username: "",
+    email: "",
+    password: "",
+    city: "",
+    isHunter: false,
   })
 
   const handleChange = (e) => {
@@ -29,7 +29,7 @@ function SignUp(props) {
       email: formValues.email,
       password: formValues.password,
       city: formValues.city,
-      isHunter: formValues.isHunter
+      isHunter: formValues.isHunter,
     }
 
     console.log(data)
@@ -37,13 +37,13 @@ function SignUp(props) {
     const user = await axios.post(`${URL}/api/users/register-user`, data)
 
     setFormValues({
-      username: '',
-      email: '',
-      password: '',
-      city: '',
-      isHunter: false
+      username: "",
+      email: "",
+      password: "",
+      city: "",
+      isHunter: false,
     })
-    navigate('/')
+    navigate("/")
   }
 
   return (
@@ -107,7 +107,7 @@ function SignUp(props) {
                     onChange={() =>
                       setFormValues((prev) => ({
                         ...prev,
-                        isHunter: !prev.isHunter
+                        isHunter: !prev.isHunter,
                       }))
                     }
                     type="checkbox"
@@ -142,4 +142,4 @@ function SignUp(props) {
   )
 }
 
-export default SignUp
+export default Signup
