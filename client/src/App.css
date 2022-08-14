@@ -64,7 +64,7 @@ body{
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
-  background-color: var(--first-color);
+  background-color: var(--first-color-ligthen );
   color: var(--text-color);
   line-height: 1.6;
 }
@@ -218,48 +218,65 @@ button{
   justify-content: center;
 }
 
+.link-switch{
+  display: flex;
+  justify-content: center;
+}
+
 /* ------------------------------------------------------------ */
 
 /*  PROFILE PAGE  */
 
 .profilePic{
 display: flex;
-margin: 30px;
-width: 20vw;
+margin-top: -60px;
+margin-left: 30px;
+width: 13vw;
 border-radius: 50%;
 box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
 }
 
 .realName{
 display: flex;
-justify-content: center;
-margin-top: 1;
+justify-content: flex-start;
+padding-top: 10px;
+padding-left: 10px;
+margin-left: 16.7%;
 }
 
 .userName{
-
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+  margin-left: 17%;
 }
 
 .contact{
-
+  display: flex;
+  justify-content: center;
 }
 
 .rates{
-
+  display: flex;
+  justify-content: center;
 }
 
 .skills{
-
+  display: flex;
+  justify-content: center;
 }
 
 .location{
-
+  display: flex;
+  justify-content: center;
 }
 
 .about{
-
+  display: flex;
+  justify-content: center;
 }
 
 .projectBox{
-
+  display: flex;
+  justify-content: center;
 }
