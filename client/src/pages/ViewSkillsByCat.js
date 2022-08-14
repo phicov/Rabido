@@ -28,20 +28,6 @@ function ViewSkillsByCat(props) {
 
   return (
     <div>
-      <nav>
-        <Link className="link" to="/feed">
-          Feed
-        </Link>
-        <Link className="link" to="/categories">
-          Categories
-        </Link>
-        <Link className="link" to="/profile">
-          Profile
-        </Link>
-        <Link className="link" to="/">
-          Sign Out
-        </Link>
-      </nav>
       <h1>Skills</h1>
       <section>
         <Link className="link" to="/categories">

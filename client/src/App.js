@@ -37,7 +37,9 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">
+        <Nav />
+      </header>
       <main>
         <Routes>
           <Route
