@@ -33,7 +33,7 @@ const GetProfilesBySkill = async (req, res) => {
             "image",
             "city",
             "about",
-            "contact",
+            "email",
             "rate",
             "projects",
           ],
