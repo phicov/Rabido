@@ -23,9 +23,16 @@ module.exports = {
       about: {
         type: Sequelize.STRING,
       },
-      contact: {
+      email: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: true,
+        },
+      },
+      passwordDigest: {
+        type: Sequelize.STRING,
       },
       rate: {
         type: Sequelize.STRING,

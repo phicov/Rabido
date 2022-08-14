@@ -39,7 +39,7 @@ function ViewProfilesBySkill(props) {
             image={profile.image}
             city={profile.city}
             about={profile.about}
-            contact={profile.contact}
+            email={profile.email}
             rate={profile.rate}
             projects={profile.projects}
           />

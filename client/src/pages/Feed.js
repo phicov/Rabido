@@ -30,7 +30,7 @@ function Feed(props) {
           <div key={profile.id}>
             <img src={profile.image} alt="post-content" />
             <h4>Name: {profile.name}</h4>
-            <h5>Email: {profile.contact}</h5>
+            <h5>Email: {profile.email}</h5>
             <h5>City: {profile.city}</h5>
             <h5>About: {profile.about}</h5>
             <h5>Rate: {profile.rate}</h5>
