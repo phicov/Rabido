@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import 'boxicons'
+
 
 function Nav(props) {
   return (
-    <nav className="nav bg-grid">
-      <div className="nav_toggle">
+    <nav>
+      <div>
       <Link className="link bx bx-menu" to="/feed">
         Feed
       </Link>
