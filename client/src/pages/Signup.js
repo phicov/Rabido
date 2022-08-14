@@ -112,8 +112,6 @@ function SignUp(props) {
                     }
                     type="checkbox"
                     name="hunterCheck"
-                    // value={formValues.hunterCheck}
-                    required
                   />
                   <span className="hunterText">Hunter?</span>
                 </label>
