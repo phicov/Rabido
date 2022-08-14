@@ -2,7 +2,9 @@ const { Profile, Skill } = require("../models")
 
 const GetProfiles = async (req, res) => {
   try {
-    const profiles = await Profile.findAll()
+    const profiles = await Profile.findAll({
+      include: [{ model: Skill, attributes: ["name"] }],
+    })
     res.send(profiles)
   } catch (error) {
     throw error
@@ -15,6 +17,30 @@ const GetProfile = async (req, res) => {
       include: [{ model: Skill, attributes: ["name"] }],
     })
     res.send(profile)
+  } catch (error) {
+    throw error
+  }
+}
+
+const GetProfilesBySkill = async (req, res) => {
+  try {
+    const profiles = await Skill.findByPk(req.params.skill_id, {
+      include: [
+        {
+          model: Profile,
+          attributes: [
+            "name",
+            "image",
+            "city",
+            "about",
+            "email",
+            "rate",
+            "projects",
+          ],
+        },
+      ],
+    })
+    res.send({ profiles })
   } catch (error) {
     throw error
   }
@@ -56,6 +82,7 @@ const DeleteProfile = async (req, res) => {
 module.exports = {
   GetProfiles,
   GetProfile,
+  GetProfilesBySkill,
   CreateProfile,
   UpdateProfile,
   DeleteProfile,

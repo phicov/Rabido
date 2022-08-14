@@ -1,17 +1,20 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { useState } from "react"
-import { RegisterUser } from "../services/Auth"
-import { useNavigate } from "react-router-dom"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { RegisterUser } from '../services/Auth'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+
+const URL = 'http://localhost:3001'
 
 function SignUp(props) {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
-    username: "",
-    email: "",
-    password: "",
-    city: "",
-    isHunter: "",
+    username: '',
+    email: '',
+    password: '',
+    city: '',
+    isHunter: false
   })
 
   const handleChange = (e) => {
@@ -21,40 +24,31 @@ function SignUp(props) {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    await RegisterUser({
+    let data = {
       username: formValues.username,
       email: formValues.email,
       password: formValues.password,
       city: formValues.city,
-      isHunter: formValues.isHunter,
-    })
+      isHunter: formValues.isHunter
+    }
+
+    console.log(data)
+
+    const user = await axios.post(`${URL}/api/users/register-user`, data)
+
     setFormValues({
-      username: "",
-      email: "",
-      password: "",
-      city: "",
-      isHunter: "",
+      username: '',
+      email: '',
+      password: '',
+      city: '',
+      isHunter: false
     })
-    navigate("/signin")
+    navigate('/')
   }
 
   return (
     <div className="signUpBody">
       <div>
-      <nav>
-        <Link className="link" to="/feed">
-          Feed
-        </Link>
-        <Link className="link" to="/categories">
-          Categories
-        </Link>
-        <Link className="link" to="/profile">
-          Profile
-        </Link>
-        <Link className="link" to="/">
-          Sign Out
-        </Link>
-      </nav>
         <div className="signup-container">
           <div className="signup-background">
             <form className="signup-form" onSubmit={handleSubmit}>
@@ -110,10 +104,15 @@ function SignUp(props) {
               <div className="hunterInput">
                 <label className="hunterLabel">
                   <input
-                    onChange={handleChange}
+                    onChange={() =>
+                      setFormValues((prev) => ({
+                        ...prev,
+                        isHunter: !prev.isHunter
+                      }))
+                    }
                     type="checkbox"
                     name="hunterCheck"
-                    value={formValues.hunterCheck}
+                    // value={formValues.hunterCheck}
                     required
                   />
                   <span className="hunterText">Hunter?</span>

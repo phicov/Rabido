@@ -23,9 +23,16 @@ module.exports = {
       about: {
         type: Sequelize.STRING,
       },
-      contact: {
+      email: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: true,
+        },
+      },
+      passwordDigest: {
+        type: Sequelize.STRING,
       },
       rate: {
         type: Sequelize.STRING,
@@ -34,14 +41,14 @@ module.exports = {
       projects: {
         type: Sequelize.STRING,
       },
-      skillId: {
-        type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
-        references: {
-          model: "skills",
-          key: "id",
-        },
-      },
+      // skillId: {
+      //   type: Sequelize.INTEGER,
+      //   onDelete: "CASCADE",
+      //   references: {
+      //     model: "skills",
+      //     key: "id",
+      //   },
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

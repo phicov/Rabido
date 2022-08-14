@@ -6,10 +6,10 @@ import Nav from "./components/Nav"
 import Feed from "./pages/Feed"
 import Profile from "./pages/Profile"
 import Category from "./pages/Category"
-import ProfilesByCategory from "./pages/ProfilesByCategory"
 import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
-import 'boxicons'
+import ViewSkillsByCat from "./pages/ViewSkillsByCat"
+import ViewProfilesBySkill from "./pages/ViewProfilesBySkill"
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -37,23 +37,41 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">
+        <Nav />
+      </header>
       <main>
         <Routes>
           <Route
             path="/"
-            element={<SignIn />}
-            setUser={setUser}
-            toggleAuthenticated={toggleAuthenticated}
+            element={
+              <SignIn
+                setUser={setUser}
+                toggleAuthenticated={toggleAuthenticated}
+              />
+            }
           />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/feed" element={<Feed />} />
           <Route
-            path="/feed"
-            element={<Feed user={user} authenticated={authenticated} />}
+            path="/profile"
+            element={
+              <Profile
+                user={user}
+                authenticated={authenticated}
+                handleLogOut={handleLogOut}
+              />
+            }
           />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/categories" element={<Category />} />
-          <Route path="/category-profile" element={<ProfilesByCategory />} />
+          <Route
+            path="/categories"
+            element={<Category handleLogOut={handleLogOut} />}
+          />
+          <Route path="/get-skills/:categoryId" element={<ViewSkillsByCat />} />
+          <Route
+            path="/get-profiles/:skillId"
+            element={<ViewProfilesBySkill />}
+          />
         </Routes>
       </main>
     </div>
