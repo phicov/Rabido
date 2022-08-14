@@ -1,12 +1,13 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { SignInUser } from "../services/Auth"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { SignInUser } from '../services/Auth'
+import axios from 'axios'
 
 function SignIn(props) {
   let navigate = useNavigate()
-  const [formValues, setFormValues] = useState({ username: "", password: "" })
+  const [formValues, setFormValues] = useState({ username: '', password: '' })
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -15,10 +16,10 @@ function SignIn(props) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
-    setFormValues({ username: "", password: "" })
+    setFormValues({ username: '', password: '' })
     props.setUser(payload)
     props.toggleAuthenticated(true)
-    navigate("/feed")
+    navigate('/feed')
   }
 
   return (
