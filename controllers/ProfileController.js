@@ -51,9 +51,7 @@ const CreateProfile = async (req, res) => {
     const newProfile = await new Profile(req.body)
     await newProfile.save()
     res.send(newProfile)
-  } catch (error) {
-    throw error
-  }
+  } catch (error) {}
 }
 
 const UpdateProfile = async (req, res) => {

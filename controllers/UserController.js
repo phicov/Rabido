@@ -1,5 +1,5 @@
-const { User } = require('../models')
-const middleware = require('../middleware')
+const { User } = require("../models")
+const middleware = require("../middleware")
 
 const GetUsers = async (req, res) => {
   try {
@@ -28,7 +28,7 @@ const RegisterUser = async (req, res) => {
       email,
       passwordDigest,
       city,
-      isHunter
+      isHunter,
     })
     res.send(user)
   } catch (error) {
@@ -40,7 +40,7 @@ const LoginUser = async (req, res) => {
   try {
     const user = await User.findOne({
       where: { username: req.body.username },
-      raw: true
+      raw: true,
     })
 
     if (
@@ -53,13 +53,13 @@ const LoginUser = async (req, res) => {
         email: user.email,
         city: user.city,
         isHunter: user.isHunter,
-        profileId: user.profileId
+        profileId: user.profileId,
       }
 
       let token = middleware.createToken(payload)
       return res.send({ user: payload, token })
     }
-    res.status(401).send({ status: 'Error', msg: 'Unauthorized - Login Issue' })
+    res.status(401).send({ status: "Error", msg: "Unauthorized - Login Issue" })
   } catch (error) {
     throw error
   }
@@ -79,8 +79,22 @@ const UpdateUser = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
     let updatedUser = await User.update(req.body, {
+      include: [
+        {
+          model: Profile,
+          attributes: [
+            "name",
+            "image",
+            "city",
+            "about",
+            "contact",
+            "rate",
+            "projects",
+          ],
+        },
+      ],
       where: { id: userId },
-      returning: true
+      returning: true,
     })
     res.send(updatedUser)
   } catch (error) {
@@ -111,5 +125,5 @@ module.exports = {
   LoginUser,
   UpdateUser,
   DeleteUser,
-  CheckSession
+  CheckSession,
 }
