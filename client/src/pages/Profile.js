@@ -11,7 +11,6 @@ function Profile({ user }) {
   let userId = user.id
 
   const [profile, setProfile] = useState({
-
     name: "",
     image: "",
     city: "",
@@ -19,9 +18,8 @@ function Profile({ user }) {
     contact: "",
     rate: "",
     projects: "",
-    skillId: "",
-    Skill: {}
-
+    // skillId: "",
+    // Skill: {},
   })
   const [formValues, setFormValues] = useState({
     name: "",
@@ -31,27 +29,27 @@ function Profile({ user }) {
     contact: user.email,
     rate: "",
     projects: "",
-    skillId: "",
+    // skillId: "",
   })
 
-  const [newProfileId, setNewProfileId] = useState("")
+  const [newProfileId, setNewProfileId] = useState(0)
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
-  const getProfile = async () => {
-    let profileId = user.profileId
-    const res = await axios.get(`${URL}/api/profiles/${profileId}`)
-    console.log(res)
-    setProfile(res.data)
+  const updateUser = async () => {
+    const update = await axios
+      .put(`${URL}/api/users/${userId}`, { profileId: newProfileId })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch((error) => console.log(error))
   }
 
-  // useEffect(() => {
-  //   getProfile()
-  // }, [user.profileId])
+  const handleSubmit = async (e) => {
+    e.preventDefault()
 
-  const createProfile = async (req, res) => {
     let data = {
       name: formValues.name,
       image: formValues.image,
@@ -66,39 +64,13 @@ function Profile({ user }) {
     const newProfile = await axios
       .post(`${URL}/api/profiles/new-profile`, data)
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data.id)
         setNewProfileId(res.data.id)
         console.log(newProfileId)
+        updateUser()
       })
-  }
 
-  const updateUser = async (req, res) => {
-    const update = await axios
-      //profileId that was generated
-      .put(`${URL}/api/users/${userId}`, { profileId: newProfileId })
-      .then((res) => {
-        console.log(res.data)
-      })
-      .catch((error) => console.log(error))
-  }
-
-  const createProfileUpdateUser = async () => {
-    try {
-      await createProfile()
-    } catch (e) {
-      throw e
-    }
-    try {
-      await updateUser()
-    } catch (e) {
-      throw e
-    }
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    await createProfileUpdateUser()
+    setNewProfileId(0)
 
     setFormValues({
       name: "",
@@ -140,7 +112,6 @@ function Profile({ user }) {
     return (
       <div>
         <h2>Make Profile Form Here</h2>
-
         <form className="profile-form" onSubmit={handleSubmit}>
           <h1>Create Profile</h1>
           <hr></hr>
