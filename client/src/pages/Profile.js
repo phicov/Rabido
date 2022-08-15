@@ -18,7 +18,8 @@ function Profile({ user }) {
     contact: '',
     rate: '',
     projects: '',
-    skillId: ''
+    skillId: '',
+    Skill: {}
   })
   const [formValues, setFormValues] = useState({
     name: '',
@@ -122,7 +123,7 @@ function Profile({ user }) {
             <p className="profileName">{profile.name}</p>
             <h3 className="contact">Contact: {profile.contact}</h3>
             <h3 className="rates">Rate: {profile.rate}</h3>
-            <h3 className="skills">Skill: profile.Skill.name</h3>
+            <h3 className="skills">Skill: {profile.Skill.name}</h3>
             <h3 className="location">Location: {profile.city}</h3>
             <h3 className="about">About: {profile.about}</h3>
             <div className="projectsContainer">
