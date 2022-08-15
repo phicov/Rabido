@@ -32,13 +32,13 @@ function Profile({ user }) {
     // skillId: "",
   })
 
-  const [newProfileId, setNewProfileId] = useState(0)
+  // const [newProfileId, setNewProfileId] = useState(0)
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
-  const updateUser = async () => {
+  const updateUser = async (newProfileId) => {
     const update = await axios
       .put(`${URL}/api/users/${userId}`, { profileId: newProfileId })
       .then((res) => {
@@ -65,12 +65,8 @@ function Profile({ user }) {
       .post(`${URL}/api/profiles/new-profile`, data)
       .then((res) => {
         console.log(res.data.id)
-        setNewProfileId(res.data.id)
-        console.log(newProfileId)
-        updateUser()
+        updateUser(res.data.id)
       })
-
-    setNewProfileId(0)
 
     setFormValues({
       name: "",
@@ -81,7 +77,7 @@ function Profile({ user }) {
       rate: "",
       projects: "",
     })
-    // navigate("/profile")
+    navigate("/profile")
   }
 
   if (user.profileId != null) {
@@ -97,7 +93,7 @@ function Profile({ user }) {
             <p className="profileName">{profile.name}</p>
             <h3 className="contact">Contact: {profile.contact}</h3>
             <h3 className="rates">Rate: {profile.rate}</h3>
-            <h3 className="skills">Skill: {profile.Skill.name}</h3>
+            {/* <h3 className="skills">Skill: {profile.Skill.name}</h3> */}
             <h3 className="location">Location: {profile.city}</h3>
             <h3 className="about">About: {profile.about}</h3>
             <div className="projectsContainer">
