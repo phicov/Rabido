@@ -5,25 +5,33 @@ import Nav from "../components/Nav"
 function Profile(props) {
   return (
     <div>
-      <div className="profileContainer">
-        <div className="profileForm">
-          <img
-            className="profilePic"
-            src="https://i.pinimg.com/280x280_RS/af/9d/d5/af9dd5f2d044b2f9c3c1521f8973c5a8.jpg"
-          />
-          <h1 className="realName">John Doe</h1>
-          <p className="userName">Username</p>
-          <h3 className="contact">Contact</h3>
-          <h3 className="rates">Rates</h3>
-          <h3 className="skills">Skills</h3>
-          <h3 className="location">Location</h3>
-          <h3 className="about">About</h3>
-          <div className="projectsContainer">
-            <div className="projectBox"></div>
+          <div className="profileNav">
+            <div className="profNavAbout">About</div>
+            <div classname="profNavSkills">Skills</div>
+            <div className="profNavProjects">projects</div>
           </div>
+
+        <div className="profileContainer">
+          <div className="profAboutPage">
+            <div className="profile-pic"><img className="profilePic" 
+                src="https://i.pinimg.com/280x280_RS/af/9d/d5/af9dd5f2d044b2f9c3c1521f8973c5a8.jpg"/></div>
+            <div className="profileName"><h1 >John Doe</h1></div>
+
+            <div className="aboutThings">
+              <div className="contact"><h3>Contact</h3></div>    
+              <div className="location"><h3>Location</h3></div> 
+              <div className="rates"><h3>Rates</h3></div>
+            </div>
+          </div>
+          <div className="about"><h3>About</h3></div>
+
+            <div className="skillPage"><h1>Skills</h1></div>
+            
+            <div className="projectsContainer">
+            <div className="projectBox">Projects</div> </div>
         </div>
       </div>
-    </div>
+
   )
 }
 
