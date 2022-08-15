@@ -4,9 +4,21 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
+const URL = 'http://localhost:3001'
+
 function Profile({ user }) {
   let navigate = useNavigate()
 
+  const [profile, setProfile] = useState({
+    name: '',
+    image: '',
+    city: '',
+    about: '',
+    contact: '',
+    rate: '',
+    projects: '',
+    skillId: ''
+  })
   const [formValues, setFormValues] = useState({
     name: '',
     image: '',
@@ -17,6 +29,17 @@ function Profile({ user }) {
     projects: '',
     skillId: ''
   })
+
+  useEffect(() => {
+    getProfile()
+  }, [])
+
+  const getProfile = async () => {
+    let profileId = user.profileId
+    const res = await axios.get(`${URL}/api/profiles/${profileId}`)
+    console.log(res)
+    setProfile(res.data)
+  }
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -57,14 +80,15 @@ function Profile({ user }) {
               className="profilePic"
               src="https://i.pinimg.com/280x280_RS/af/9d/d5/af9dd5f2d044b2f9c3c1521f8973c5a8.jpg"
             />
-            <h1 className="realName">John Doe</h1>
-            <p className="userName">Username</p>
-            <h3 className="contact">Contact</h3>
-            <h3 className="rates">Rates</h3>
-            <h3 className="skills">Skills</h3>
-            <h3 className="location">Location</h3>
-            <h3 className="about">About</h3>
+            <h1 className="realName">{user.name}</h1>
+            <p className="profileName">{profile.name}</p>
+            <h3 className="contact">Contact: {profile.contact}</h3>
+            <h3 className="rates">Rate: {profile.rate}</h3>
+            <h3 className="skills">{profile.Skill.name}</h3>
+            <h3 className="location">Location: {profile.city}</h3>
+            <h3 className="about">About: {profile.about}</h3>
             <div className="projectsContainer">
+              Projects: {profile.projects}
               <div className="projectBox"></div>
             </div>
           </div>
