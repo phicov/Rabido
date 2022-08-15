@@ -1,33 +1,34 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from "react"
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import axios from "axios"
 
-const URL = 'http://localhost:3001'
+const URL = "http://localhost:3001"
 
 function Profile({ user }) {
   let navigate = useNavigate()
 
   const [profile, setProfile] = useState({
-    name: '',
-    image: '',
-    city: '',
-    about: '',
-    contact: '',
-    rate: '',
-    projects: '',
-    skillId: ''
+    name: "",
+    image: "",
+    city: "",
+    about: "",
+    contact: "",
+    rate: "",
+    projects: "",
+    skillId: "",
   })
+
   const [formValues, setFormValues] = useState({
-    name: '',
-    image: '',
+    name: "",
+    image: "",
     city: user.city,
-    about: '',
+    about: "",
     contact: user.email,
-    rate: '',
-    projects: '',
-    skillId: ''
+    rate: "",
+    projects: "",
+    // skillId: "",
   })
 
   useEffect(() => {
@@ -56,19 +57,34 @@ function Profile({ user }) {
       contact: user.email,
       rate: formValues.rate,
       projects: formValues.projects,
-      skillId: formValues.skillId
+      // skillId: formValues.skillId,
     }
 
-    await axios.post(`${URL}/api/profiles/new-profile`, data)
+    const res = await axios
+      .post(`${URL}/api/profiles/new-profile`, data)
+      .then((res) => {
+        console.log(res.data)
+        // updateUsersProfile()
+      })
+      .catch((error) => console.log(error))
 
     setFormValues({
-      username: '',
-      email: '',
-      password: '',
-      city: '',
-      isHunter: false
+      name: "",
+      image: "",
+      city: user.city,
+      about: "",
+      contact: user.email,
+      rate: "",
+      projects: "",
     })
-    navigate('/profile')
+    // navigate("/feed")
+  }
+
+  const updateUsersProfile = async (_id, user) => {
+    const res = await axios
+      .put(`${URL}/api/users/${_id}`, user.profileId)
+      // .then((_res) => navigate())
+      .catch((error) => console.log(error))
   }
 
   if (user.profileId != null) {
@@ -125,12 +141,11 @@ function Profile({ user }) {
           </div>
           <div className="input-wrapper">
             <input
-              onChange={handleChange}
               name="city"
               type="text"
               placeholder="City"
               value={formValues.city}
-              required
+              readonly
             />
           </div>
           <div className="input-wrapper">
@@ -144,12 +159,11 @@ function Profile({ user }) {
           </div>
           <div className="input-wrapper">
             <input
-              onChange={handleChange}
               name="contact"
               type="text"
               placeholder="Email for Contact"
-              value={formValues.email}
-              required
+              value={formValues.contact}
+              readonly
             />
           </div>
           <div className="input-wrapper">
@@ -171,16 +185,16 @@ function Profile({ user }) {
               value={formValues.projects}
               required
             />
-            <div className="input-wrapper">
+            {/* <div className="input-wrapper">
               <input
                 onChange={handleChange}
                 name="skill"
                 type="text"
                 placeholder="Skill"
                 value={formValues.skillId}
-                required
+                // required
               />
-            </div>
+            </div> */}
           </div>
           <button className="create-profile-btn" disabled={!formValues.name}>
             Create Profile
