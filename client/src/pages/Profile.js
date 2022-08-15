@@ -1,36 +1,40 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from "react"
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import axios from "axios"
 
-const URL = 'http://localhost:3001'
+const URL = "http://localhost:3001"
 
 function Profile({ user }) {
   let navigate = useNavigate()
   let userId = user.id
 
   const [profile, setProfile] = useState({
-    name: '',
-    image: '',
-    city: '',
-    about: '',
-    contact: '',
-    rate: '',
-    projects: '',
-    skillId: '',
+
+    name: "",
+    image: "",
+    city: "",
+    about: "",
+    contact: "",
+    rate: "",
+    projects: "",
+    skillId: "",
     Skill: {}
+
   })
   const [formValues, setFormValues] = useState({
-    name: '',
-    image: '',
+    name: "",
+    image: "",
     city: user.city,
-    about: '',
+    about: "",
     contact: user.email,
-    rate: '',
-    projects: '',
-    skillId: ''
+    rate: "",
+    projects: "",
+    skillId: "",
   })
+
+  const [newProfileId, setNewProfileId] = useState("")
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -43,9 +47,9 @@ function Profile({ user }) {
     setProfile(res.data)
   }
 
-  useEffect(() => {
-    getProfile()
-  }, [user.profileId])
+  // useEffect(() => {
+  //   getProfile()
+  // }, [user.profileId])
 
   const createProfile = async (req, res) => {
     let data = {
@@ -56,27 +60,25 @@ function Profile({ user }) {
       contact: user.email,
       rate: formValues.rate,
       projects: formValues.projects,
-      skillId: formValues.skillId
+      // skillId: formValues.skillId,
     }
 
     const newProfile = await axios
       .post(`${URL}/api/profiles/new-profile`, data)
-      .catch((error) => console.log(error))
-  }
-
-  const getProfileId = async (req, res) => {
-    //axios call, find profile WHERE email is === user.email
-    //set state of profileId
-    //pass this number to updateUser function
+      .then((res) => {
+        console.log(res.data)
+        setNewProfileId(res.data.id)
+        console.log(newProfileId)
+      })
   }
 
   const updateUser = async (req, res) => {
     const update = await axios
-      .put(
-        `${URL}/api/users/${userId}`
-        //profileId that was generated
-      )
-      // .then((_res) => navigate())
+      //profileId that was generated
+      .put(`${URL}/api/users/${userId}`, { profileId: newProfileId })
+      .then((res) => {
+        console.log(res.data)
+      })
       .catch((error) => console.log(error))
   }
 
@@ -99,15 +101,15 @@ function Profile({ user }) {
     await createProfileUpdateUser()
 
     setFormValues({
-      name: '',
-      image: '',
+      name: "",
+      image: "",
       city: user.city,
-      about: '',
+      about: "",
       contact: user.email,
-      rate: '',
-      projects: ''
+      rate: "",
+      projects: "",
     })
-    navigate('/profile')
+    // navigate("/profile")
   }
 
   if (user.profileId != null) {

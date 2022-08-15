@@ -18,7 +18,7 @@ function Feed(props) {
 
   const getProfiles = async () => {
     const res = await axios.get(`${URL}/api/profiles/get-profiles`)
-    console.log(res)
+    console.log(res.data)
     setProfiles(res.data)
   }
   return (
