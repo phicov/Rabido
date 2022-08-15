@@ -1,39 +1,39 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
-import axios from "axios"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-const URL = "http://localhost:3001"
+const URL = 'http://localhost:3001'
 
 function Profile({ user }) {
   let navigate = useNavigate()
+  let userId = user.id
 
   const [profile, setProfile] = useState({
-    name: "",
-    image: "",
-    city: "",
-    about: "",
-    contact: "",
-    rate: "",
-    projects: "",
-    skillId: "",
+    name: '',
+    image: '',
+    city: '',
+    about: '',
+    contact: '',
+    rate: '',
+    projects: '',
+    skillId: ''
   })
-
   const [formValues, setFormValues] = useState({
-    name: "",
-    image: "",
+    name: '',
+    image: '',
     city: user.city,
-    about: "",
+    about: '',
     contact: user.email,
-    rate: "",
-    projects: "",
-    // skillId: "",
+    rate: '',
+    projects: '',
+    skillId: ''
   })
 
-  useEffect(() => {
-    getProfile()
-  }, [])
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
 
   const getProfile = async () => {
     let profileId = user.profileId
@@ -42,13 +42,11 @@ function Profile({ user }) {
     setProfile(res.data)
   }
 
-  const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
-  }
+  useEffect(() => {
+    getProfile()
+  }, [user.profileId])
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
+  const createProfile = async (req, res) => {
     let data = {
       name: formValues.name,
       image: formValues.image,
@@ -57,34 +55,58 @@ function Profile({ user }) {
       contact: user.email,
       rate: formValues.rate,
       projects: formValues.projects,
-      // skillId: formValues.skillId,
+      skillId: formValues.skillId
     }
 
-    const res = await axios
+    const newProfile = await axios
       .post(`${URL}/api/profiles/new-profile`, data)
-      .then((res) => {
-        console.log(res.data)
-        // updateUsersProfile()
-      })
       .catch((error) => console.log(error))
-
-    setFormValues({
-      name: "",
-      image: "",
-      city: user.city,
-      about: "",
-      contact: user.email,
-      rate: "",
-      projects: "",
-    })
-    // navigate("/feed")
   }
 
-  const updateUsersProfile = async (_id, user) => {
-    const res = await axios
-      .put(`${URL}/api/users/${_id}`, user.profileId)
+  const getProfileId = async (req, res) => {
+    //axios call, find profile WHERE email is === user.email
+    //set state of profileId
+    //pass this number to updateUser function
+  }
+
+  const updateUser = async (req, res) => {
+    const update = await axios
+      .put(
+        `${URL}/api/users/${userId}`
+        //profileId that was generated
+      )
       // .then((_res) => navigate())
       .catch((error) => console.log(error))
+  }
+
+  const createProfileUpdateUser = async () => {
+    try {
+      await createProfile()
+    } catch (e) {
+      throw e
+    }
+    try {
+      await updateUser()
+    } catch (e) {
+      throw e
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    await createProfileUpdateUser()
+
+    setFormValues({
+      name: '',
+      image: '',
+      city: user.city,
+      about: '',
+      contact: user.email,
+      rate: '',
+      projects: ''
+    })
+    navigate('/profile')
   }
 
   if (user.profileId != null) {
@@ -100,7 +122,7 @@ function Profile({ user }) {
             <p className="profileName">{profile.name}</p>
             <h3 className="contact">Contact: {profile.contact}</h3>
             <h3 className="rates">Rate: {profile.rate}</h3>
-            <h3 className="skills">{profile.Skill.name}</h3>
+            <h3 className="skills">Skill: profile.Skill.name</h3>
             <h3 className="location">Location: {profile.city}</h3>
             <h3 className="about">About: {profile.about}</h3>
             <div className="projectsContainer">
@@ -192,7 +214,7 @@ function Profile({ user }) {
                 type="text"
                 placeholder="Skill"
                 value={formValues.skillId}
-                // required
+                required
               />
             </div> */}
           </div>
