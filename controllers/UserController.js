@@ -1,5 +1,6 @@
 const { User, Profile } = require("../models")
 const middleware = require("../middleware")
+const { Op } = require("sequelize")
 
 const GetUsers = async (req, res) => {
   try {
@@ -79,20 +80,6 @@ const UpdateUser = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
     let updatedUser = await User.update(req.body, {
-      include: [
-        {
-          model: Profile,
-          attributes: [
-            "name",
-            "image",
-            "city",
-            "about",
-            "contact",
-            "rate",
-            "projects",
-          ],
-        },
-      ],
       where: { id: userId },
       returning: true,
     })
