@@ -110,10 +110,9 @@ function Profile({ user }) {
             />
           </div>
           <div className="input-wrapper">
-            <input
+            <textarea
               onChange={handleChange}
               name="about"
-              type="text"
               placeholder="About"
               value={formValues.about}
               required
