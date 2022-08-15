@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const URL = 'http://localhost:3001'
 
-function SignUp(props) {
+function Signup(props) {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     username: '',
@@ -32,9 +32,7 @@ function SignUp(props) {
       isHunter: formValues.isHunter
     }
 
-    console.log(data)
-
-    const user = await axios.post(`${URL}/api/users/register-user`, data)
+    await axios.post(`${URL}/api/users/register-user`, data)
 
     setFormValues({
       username: '',
@@ -112,8 +110,6 @@ function SignUp(props) {
                     }
                     type="checkbox"
                     name="hunterCheck"
-                    // value={formValues.hunterCheck}
-                    required
                   />
                   <span className="hunterText">Hunter?</span>
                 </label>
@@ -142,4 +138,4 @@ function SignUp(props) {
   )
 }
 
-export default SignUp
+export default Signup

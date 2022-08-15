@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       about: DataTypes.STRING,
-      email: {
+      contact: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
@@ -35,7 +35,6 @@ module.exports = (sequelize, DataTypes) => {
           isEmail: true,
         },
       },
-      passwordDigest: DataTypes.STRING,
       rate: {
         type: DataTypes.STRING,
         allowNull: false,

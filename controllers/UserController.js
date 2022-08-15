@@ -36,6 +36,35 @@ const RegisterUser = async (req, res) => {
   }
 }
 
+const LoginUser = async (req, res) => {
+  try {
+    const user = await User.findOne({
+      where: { username: req.body.username },
+      raw: true
+    })
+
+    if (
+      user &&
+      (await middleware.comparePassword(user.passwordDigest, req.body.password))
+    ) {
+      let payload = {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        city: user.city,
+        isHunter: user.isHunter,
+        profileId: user.profileId
+      }
+
+      let token = middleware.createToken(payload)
+      return res.send({ user: payload, token })
+    }
+    res.status(401).send({ status: 'Error', msg: 'Unauthorized - Login Issue' })
+  } catch (error) {
+    throw error
+  }
+}
+
 const CreateUser = async (req, res) => {
   try {
     const newUser = await new User(req.body)
@@ -69,11 +98,18 @@ const DeleteUser = async (req, res) => {
   }
 }
 
+const CheckSession = async (req, res) => {
+  const { payload } = res.locals
+  res.send(payload)
+}
+
 module.exports = {
   GetUsers,
   GetUser,
   CreateUser,
   RegisterUser,
+  LoginUser,
   UpdateUser,
-  DeleteUser
+  DeleteUser,
+  CheckSession
 }
