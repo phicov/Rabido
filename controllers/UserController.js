@@ -1,4 +1,4 @@
-const { User } = require("../models")
+const { User, Profile } = require("../models")
 const middleware = require("../middleware")
 
 const GetUsers = async (req, res) => {
