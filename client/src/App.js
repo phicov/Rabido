@@ -1,21 +1,33 @@
-import "./App.css"
-import { Route, Routes } from "react-router"
-import { useState, useEffect } from "react"
-import { CheckSession } from "./services/Auth"
-import Nav from "./components/Nav"
-import Feed from "./pages/Feed"
-import Profile from "./pages/Profile"
-import Category from "./pages/Category"
-import SignIn from "./pages/SignIn"
-import Signup from "./pages/Signup"
-import ViewSkillsByCat from "./pages/ViewSkillsByCat"
-import ViewProfilesBySkill from "./pages/ViewProfilesBySkill"
-import TestProfile from "./pages/TestProfile"
+import './App.css'
+import { Route, Routes } from 'react-router'
+import { useState, useEffect } from 'react'
+import { CheckSession } from './services/Auth'
+import Nav from './components/Nav'
+import Feed from './pages/Feed'
+import Profile from './pages/Profile'
+import Category from './pages/Category'
+import SignIn from './pages/SignIn'
+import Signup from './pages/Signup'
+import ViewSkillsByCat from './pages/ViewSkillsByCat'
+import ViewProfilesBySkill from './pages/ViewProfilesBySkill'
+import TestProfile from './pages/TestProfile'
+import axios from 'axios'
 
+const URL = 'http://localhost:3001'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
+  const [skills, setSkills] = useState([])
+
+  useEffect(() => {
+    const getSkills = async () => {
+      let res = await axios.get(`${URL}/api/skills/skillsList`)
+      console.log(res.data)
+      setSkills(res.data)
+    }
+    getSkills()
+  }, [])
 
   const handleLogOut = () => {
     setUser(null)
@@ -25,13 +37,13 @@ function App() {
 
   const checkToken = async () => {
     const userData = await CheckSession()
-    localStorage.setItem("token", userData.token)
+    localStorage.setItem('token', userData.token)
     setUser(userData.user)
     toggleAuthenticated(true)
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem('token')
     if (token) {
       checkToken()
     }
@@ -64,6 +76,7 @@ function App() {
             element={
               <Profile
                 user={user}
+                skills={skills}
                 authenticated={authenticated}
                 handleLogOut={handleLogOut}
               />
@@ -78,7 +91,7 @@ function App() {
             path="/get-profiles/:skillId"
             element={<ViewProfilesBySkill />}
           />
-          <Route path ='/testprof' element={<TestProfile/>}/>
+          <Route path="/testprof" element={<TestProfile />} />
         </Routes>
       </main>
     </div>
