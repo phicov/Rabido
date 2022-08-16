@@ -35,10 +35,11 @@ function Feed(props) {
             <h5>About: {profile.about}</h5>
             <h5>Rate: {profile.rate}</h5>
             <h5>Projects: {profile.projects}</h5>
-            <h5>Skill: {profile.Skill.name}</h5>
+            {/* <h5>Skill: {profile.Skill.name}</h5> */}
           </div>
         ))}
       </div>
+      <div></div>
     </div>
   )
 }
