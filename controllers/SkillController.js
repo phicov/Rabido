@@ -11,7 +11,7 @@ const GetSkills = async (req, res) => {
 
 const GetSkillNames = async (req, res) => {
   try {
-    const skills = await Skill.findAll({ attributes: ['name'] })
+    const skills = await Skill.findAll({ attributes: ['id', 'name'] })
     res.send(skills)
   } catch (error) {
     throw error
