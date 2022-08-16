@@ -101,9 +101,18 @@ const DeleteUser = async (req, res) => {
 }
 
 const CheckSession = async (req, res) => {
-  const { token } = res.locals
-  const payload = jwt.verify(token, process.env.APP_SECRET)
-  res.send(payload)
+  const userData = jwt.verify(res.locals.token, process.env.APP_SECRET)
+  const user = await User.findByPk(userData.id)
+  let payload = {
+    id: user.id,
+    username: user.username,
+    email: user.email,
+    city: user.city,
+    isHunter: user.isHunter,
+    profileId: user.profileId,
+  }
+  let token = middleware.createToken(payload)
+  res.send({ user: payload, token })
 }
 
 module.exports = {

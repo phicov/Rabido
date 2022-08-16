@@ -22,8 +22,9 @@ function App() {
   }
 
   const checkToken = async () => {
-    const user = await CheckSession()
-    setUser(user)
+    const userData = await CheckSession()
+    localStorage.setItem("token", userData.token)
+    setUser(userData.user)
     toggleAuthenticated(true)
   }
 

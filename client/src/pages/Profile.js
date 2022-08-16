@@ -65,6 +65,7 @@ function Profile({ user }) {
       .then((res) => {
         console.log(res.data.id)
         updateUser(res.data.id)
+        setProfile(res.data)
       })
 
     setFormValues({
@@ -76,7 +77,7 @@ function Profile({ user }) {
       rate: "",
       projects: "",
     })
-    navigate("/profile")
+    navigate(0)
   }
   if (!user) {
     return <div>Loading</div>
@@ -156,7 +157,7 @@ function Profile({ user }) {
               type="text"
               placeholder="Email for Contact"
               value={formValues.contact}
-              readonly
+              // readonly
             />
           </div>
           <div className="input-wrapper">
