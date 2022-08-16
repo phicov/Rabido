@@ -87,111 +87,114 @@ function UpdateProfile({ user, skills }) {
       skillId: "",
     })
 
-    // navigate("/profile")
+    navigate("/profile")
   }
   if (user.profileId != null && toggleProfile == 0) {
     getUsersProfile()
     setToggleProfile(1)
-  } else if (user.profileId != null && toggleProfile == 1)
-    return (
+  } else if (user.profileId != null && toggleProfile == 1) {
+  } else {
+    setToggleProfile(0)
+  }
+  return (
+    <div>
       <div>
-        <div>
-          <h1>Update Profile</h1>
-          <form className="profile-form" onSubmit={handleSubmit}>
-            <hr></hr>
-            <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                name="name"
-                type="text"
-                placeholder={profName}
-                value={formValues.name}
-                required
-              />
-            </div>
-            <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                name="image"
-                type="text"
-                placeholder={profImg}
-                value={formValues.image}
-                required
-              />
-            </div>
-            <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                name="city"
-                type="text"
-                placeholder={profCity}
-                value={formValues.city}
-                required
-              />
-            </div>
-            <div className="input-wrapper">
-              <textarea
-                onChange={handleChange}
-                name="about"
-                placeholder={profAbout}
-                value={formValues.about}
-                required
-              />
-            </div>
-            <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                name="contact"
-                type="text"
-                placeholder="Email"
-                value={formValues.contact}
-                required
-              />
-            </div>
-            <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                name="rate"
-                type="text"
-                placeholder={profRate}
-                value={formValues.rate}
-                required
-              />
-            </div>
-            <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                name="projects"
-                type="text"
-                placeholder={profProj}
-                value={formValues.projects}
-                required
-              />
-              <select
-                defaultValue={formValues.skillId}
-                onChange={handleChange}
-                name="skillId"
-                required
-              >
-                <option value="" disabled hidden>
-                  Select Skill
+        <h1>Update Profile</h1>
+        <form className="profile-form" onSubmit={handleSubmit}>
+          <hr></hr>
+          <div className="input-wrapper">
+            <input
+              onChange={handleChange}
+              name="name"
+              type="text"
+              placeholder={profName}
+              value={formValues.name}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              onChange={handleChange}
+              name="image"
+              type="text"
+              placeholder={profImg}
+              value={formValues.image}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              onChange={handleChange}
+              name="city"
+              type="text"
+              placeholder={profCity}
+              value={formValues.city}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <textarea
+              onChange={handleChange}
+              name="about"
+              placeholder={profAbout}
+              value={formValues.about}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              onChange={handleChange}
+              name="contact"
+              type="text"
+              placeholder="Email"
+              value={formValues.contact}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              onChange={handleChange}
+              name="rate"
+              type="text"
+              placeholder={profRate}
+              value={formValues.rate}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              onChange={handleChange}
+              name="projects"
+              type="text"
+              placeholder={profProj}
+              value={formValues.projects}
+              required
+            />
+            <select
+              defaultValue={formValues.skillId}
+              onChange={handleChange}
+              name="skillId"
+              required
+            >
+              <option value="" disabled hidden>
+                Select Skill
+              </option>
+              {skills.map((skill) => (
+                <option key={skill.id} value={skill.id}>
+                  {skill.id}. {skill.name}
                 </option>
-                {skills.map((skill) => (
-                  <option key={skill.id} value={skill.id}>
-                    {skill.id}. {skill.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <button className="create-profile-btn" disabled={!formValues.name}>
-              Update
-            </button>
-            <h2></h2>
-            <hr></hr>
-          </form>
-        </div>
+              ))}
+            </select>
+          </div>
+          <button className="create-profile-btn" disabled={!formValues.name}>
+            Update Profile
+          </button>
+          <h2></h2>
+          <hr></hr>
+        </form>
       </div>
-    )
+    </div>
+  )
 }
 
 export default UpdateProfile
