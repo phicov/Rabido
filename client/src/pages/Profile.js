@@ -19,7 +19,7 @@ function Profile({ user, skills }) {
     contact: user && user.email,
     rate: '',
     projects: '',
-    skillId: 0
+    skillId: ''
   })
 
   const [profileData, setProfileData] = useState([])
@@ -72,7 +72,7 @@ function Profile({ user, skills }) {
       contact: user.email,
       rate: '',
       projects: '',
-      skillId: 0
+      skillId: ''
     })
 
     navigate(0)
@@ -184,6 +184,9 @@ function Profile({ user, skills }) {
               name="skillId"
               required
             >
+              <option value="" disabled hidden>
+                Select Skill
+              </option>
               {skills.map((skill) => (
                 <option key={skill.id} value={skill.id}>
                   {skill.id}. {skill.name}
