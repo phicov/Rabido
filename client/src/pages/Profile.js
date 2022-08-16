@@ -1,24 +1,24 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
-import axios from "axios"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-const URL = "http://localhost:3001"
+const URL = 'http://localhost:3001'
 
-function Profile({ user }) {
+function Profile({ user, skills }) {
   let navigate = useNavigate()
 
   const [toggleProfile, setToggleProfile] = useState(0)
 
   const [formValues, setFormValues] = useState({
-    name: "",
-    image: "",
+    name: '',
+    image: '',
     city: user && user.city,
-    about: "",
+    about: '',
     contact: user && user.email,
-    rate: "",
-    projects: "",
+    rate: '',
+    projects: ''
     // skillId: "",
   })
 
@@ -53,7 +53,7 @@ function Profile({ user }) {
       about: formValues.about,
       contact: user.email,
       rate: formValues.rate,
-      projects: formValues.projects,
+      projects: formValues.projects
       // skillId: formValues.skillId,
     }
 
@@ -65,13 +65,13 @@ function Profile({ user }) {
       })
 
     setFormValues({
-      name: "",
-      image: "",
+      name: '',
+      image: '',
       city: user.city,
-      about: "",
+      about: '',
       contact: user.email,
-      rate: "",
-      projects: "",
+      rate: '',
+      projects: ''
     })
 
     navigate(0)
@@ -84,6 +84,7 @@ function Profile({ user }) {
     getUsersProfile()
     setToggleProfile(1)
   } else if (user.profileId != null && toggleProfile == 1) {
+    console.log(skills)
     return (
       <div>
         <div className="profileContainer">
@@ -176,12 +177,18 @@ function Profile({ user }) {
               value={formValues.projects}
               required
             />
+            <select>
+              {skills.map((skill) => (
+                <option value={skill.name}>{skill.name}</option>
+              ))}
+            </select>
             {/* <div className="input-wrapper">
               <input
                 onChange={handleChange}
                 name="skill"
                 type="text"
                 placeholder="Skill"
+                dropdown = ...skills
                 value={formValues.skillId}
                 required
               />
