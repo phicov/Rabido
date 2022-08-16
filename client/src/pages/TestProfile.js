@@ -26,12 +26,48 @@ return (
             <h3>Contact</h3>
             <h3>Rates</h3>
             
-            <p>About me</p>
+            <p>lorem15lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 lorem15 </p>
         </section>
 
         <section className='projects' id='projects'>
-            <h1>Projects</h1>
-            <div className='projectItem'>project1</div>
+            <div className='projectsContainer'>
+                <div className='projectItem'>
+                    <h3>project card 1</h3>
+                    <hr></hr>
+                    <img src='https://miro.medium.com/max/1000/1*wLubnBK3-31zDS0ppyU6wQ.png'/>
+                    <p>description 1</p>
+                </div>
+                <div className='projectItem'>
+                    <h3>project card 2</h3>
+                    <hr></hr>
+                    <img src='https://miro.medium.com/max/1000/1*wLubnBK3-31zDS0ppyU6wQ.png'/>
+                    <p>description 2</p>
+                </div>
+                <div className='projectItem'>
+                    <h3>project card 3</h3>
+                    <hr></hr>
+                    <img src='https://miro.medium.com/max/1000/1*wLubnBK3-31zDS0ppyU6wQ.png'/>
+                    <p>description 3</p>
+                </div>
+                <div className='projectItem'>
+                    <h3>project card 4</h3>
+                    <hr></hr>
+                    <img src='https://miro.medium.com/max/1000/1*wLubnBK3-31zDS0ppyU6wQ.png'/>
+                    <p>description 4</p>
+                </div>
+                <div className='projectItem'>
+                    <h3>project card 5</h3>
+                    <hr></hr>
+                    <img src='https://miro.medium.com/max/1000/1*wLubnBK3-31zDS0ppyU6wQ.png'/>
+                    <p>description 5</p>
+                </div>
+                <div className='projectItem'>
+                    <h3>project card 6</h3>
+                    <hr></hr>
+                    <img src='https://miro.medium.com/max/1000/1*wLubnBK3-31zDS0ppyU6wQ.png'/>
+                    <p>description 6</p>
+                </div>
+            </div>
         </section>
     </div>
 

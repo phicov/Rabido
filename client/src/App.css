@@ -241,7 +241,6 @@ button{
 }
 
 .profileContainer{
-
   width: 100%;
   height: 100%;
   /* CSS Smooth Scroll */
@@ -282,7 +281,7 @@ button{
   color: skyblue
 }
 
-section{
+.about{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -292,15 +291,59 @@ section{
   height: 100vh;
 }
 
-
 section h1{
   font-size: 4rem;
 }
 
-section img {
+
+.about p{
+  max-width: 600px;
+}
+
+.about img {
   width: 15vw;
+  max-width: 200px;
+  min-width: 125px;
   border-radius: 50%;
 }
+
+.projects{
+
+
+  height: max-content;
+  min-height: 100vh;
+}
+
+.projectsContainer{
+  padding-top: 125px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 30px 0;
+}
+
+.projectItem{
+  background-color: white;
+  padding: 8px;
+  border-radius: 20px;
+  max-width: 300px;
+  box-shadow: 0 0 10px 3px rgba(0,0,0,0.4);
+}
+
+.projectItem h3{
+  text-align: center;
+}
+
+.projectItem p{
+  text-align: center;
+}
+
+.projectItem img{
+  border-radius: 20px;
+}
+
 
 
 
