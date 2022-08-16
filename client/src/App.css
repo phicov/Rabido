@@ -61,7 +61,7 @@ html{
 }
 
 body{
-
+  overflow: hidden;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
@@ -137,7 +137,7 @@ img{
   align-items: center;
 }
 
-.link:hover , .signup-btn:hover, .signin-btn:hover, .hunterLabel:hover{
+.link:hover , .signup-btn:hover, .signin-btn:hover, .hunterLabel:hover, .signLink:hover{
   transition-duration: 0.2s;
   animation: ease-in-out;
   transform: scale(1.1);
@@ -224,7 +224,7 @@ button{
 }
 
 .signLink{
-  color: black
+  color: black 
 }
 
 /* ------------------------------------------------------------ */
@@ -232,8 +232,6 @@ button{
 /*  PROFILE PAGE  */
 
 .profileBody{
-  background-image: none !important;
-  background-repeat: no-repeat !important;
   line-height: 1.6;
   height: 100vh;
   margin: 0;
@@ -244,7 +242,13 @@ button{
   width: 100%;
   height: 100%;
   /* CSS Smooth Scroll */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
 
+section{
+  scroll-snap-align: center;
 }
 
 .profileNav{

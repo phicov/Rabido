@@ -111,7 +111,7 @@ function Signup(props) {
                     type="checkbox"
                     name="hunterCheck"
                   />
-                  <span className="hunterText">Hunter?</span>
+                  <span className="hunterText">Looking for Experts?</span>
                 </label>
               </div>
               <button
@@ -126,7 +126,7 @@ function Signup(props) {
               </button>
               <hr></hr>
               <div className="link-switch">
-                <Link className="link" to="/">
+                <Link className="link signLink" to="/">
                   Already have an account?
                 </Link>
               </div>
