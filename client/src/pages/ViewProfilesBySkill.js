@@ -32,18 +32,21 @@ function ViewProfilesBySkill(props) {
         <Link className="link" to="/categories">
           Back To Categories
         </Link>
-        {profiles.map((profile) => (
-          <ProfileCard
-            key={profile.id}
-            name={profile.name}
-            image={profile.image}
-            city={profile.city}
-            about={profile.about}
-            contact={profile.contact}
-            rate={profile.rate}
-            projects={profile.projects}
-          />
-        ))}
+        {profiles
+          .slice(0)
+          .reverse()
+          .map((profile) => (
+            <ProfileCard
+              key={profile.id}
+              name={profile.name}
+              image={profile.image}
+              city={profile.city}
+              about={profile.about}
+              contact={profile.contact}
+              rate={profile.rate}
+              projects={profile.projects}
+            />
+          ))}
       </div>
     </div>
   )

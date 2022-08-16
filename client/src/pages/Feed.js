@@ -26,18 +26,21 @@ function Feed(props) {
       <h1>Feed</h1>
 
       <div>
-        {profiles.map((profile) => (
-          <div key={profile.id}>
-            <img src={profile.image} alt="post-content" />
-            <h4>Name: {profile.name}</h4>
-            <h5>Contact: {profile.contact}</h5>
-            <h5>City: {profile.city}</h5>
-            <h5>About: {profile.about}</h5>
-            <h5>Rate: {profile.rate}</h5>
-            <h5>Projects: {profile.projects}</h5>
-            {/* <h5>Skill: {profile.Skill.name}</h5> */}
-          </div>
-        ))}
+        {profiles
+          .slice(0)
+          .reverse()
+          .map((profile) => (
+            <div key={profile.id}>
+              <img src={profile.image} alt="post-content" />
+              <h4>Name: {profile.name}</h4>
+              <h5>Contact: {profile.contact}</h5>
+              <h5>City: {profile.city}</h5>
+              <h5>About: {profile.about}</h5>
+              <h5>Rate: {profile.rate}</h5>
+              <h5>Projects: {profile.projects}</h5>
+              <h5>Skill: {profile.Skill.name}</h5>
+            </div>
+          ))}
       </div>
       <div></div>
     </div>

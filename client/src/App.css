@@ -61,7 +61,7 @@ html{
 }
 
 body{
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
@@ -359,4 +359,20 @@ section#about{
 
 section#projects{
   background: var(--first-color-light);
+}
+
+
+/* Categories */
+
+.cat-container {
+  text-align: center;
+  cursor: pointer;
+}
+
+.cats {
+padding: 20px;
+background: white;
+margin-top: 20px;
+margin-bottom: 10px;
+border-radius: 20px;
 }
