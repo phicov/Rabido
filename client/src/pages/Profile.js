@@ -18,8 +18,8 @@ function Profile({ user, skills }) {
     about: '',
     contact: user && user.email,
     rate: '',
-    projects: ''
-    // skillId: "",
+    projects: '',
+    skillId: 0
   })
 
   const [profileData, setProfileData] = useState([])
@@ -53,8 +53,8 @@ function Profile({ user, skills }) {
       about: formValues.about,
       contact: user.email,
       rate: formValues.rate,
-      projects: formValues.projects
-      // skillId: formValues.skillId,
+      projects: formValues.projects,
+      skillId: formValues.skillId
     }
 
     const newProfile = await axios
@@ -71,7 +71,8 @@ function Profile({ user, skills }) {
       about: '',
       contact: user.email,
       rate: '',
-      projects: ''
+      projects: '',
+      skillId: 0
     })
 
     navigate(0)
@@ -177,9 +178,16 @@ function Profile({ user, skills }) {
               value={formValues.projects}
               required
             />
-            <select>
+            <select
+              defaultValue={formValues.skillId}
+              onChange={handleChange}
+              name="skillId"
+              required
+            >
               {skills.map((skill) => (
-                <option value={skill.name}>{skill.name}</option>
+                <option key={skill.id} value={skill.id}>
+                  {skill.id}. {skill.name}
+                </option>
               ))}
             </select>
             {/* <div className="input-wrapper">
