@@ -17,9 +17,20 @@ return (
             </ul>
         </nav>
 
+        <div className='menu'>
+            <ul>
+                <li><a href='#'>Settings</a></li>
+            </ul>
+        </div>
+
         <section className='about' id='about'>
             
             <img classname='profilePic' src='https://i.pinimg.com/736x/93/45/89/934589f3aa2f266b260de8bfeb3ae1ab.jpg'/>
+            <div className='menu'>
+                <ul>
+                    <li><a href='#'>Settings</a></li>
+                </ul>
+            </div>
             <h2>Name</h2>
             <h3>Skills</h3>
             <h3>Location</h3>
