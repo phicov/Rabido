@@ -9,17 +9,8 @@ const URL = "http://localhost:3001"
 function Profile({ user }) {
   let navigate = useNavigate()
 
-  const [profile, setProfile] = useState({
-    name: "",
-    image: "",
-    city: "",
-    about: "",
-    contact: "",
-    rate: "",
-    projects: "",
-    // skillId: "",
-    // Skill: {},
-  })
+  const [toggleProfile, setToggleProfile] = useState(0)
+
   const [formValues, setFormValues] = useState({
     name: "",
     image: "",
@@ -31,7 +22,13 @@ function Profile({ user }) {
     // skillId: "",
   })
 
-  // const [newProfileId, setNewProfileId] = useState(0)
+  const [profileData, setProfileData] = useState([])
+
+  const getUsersProfile = async () => {
+    const res = await axios.get(`${URL}/api/profiles/${user.profileId}`)
+    console.log(res.data)
+    setProfileData(res.data)
+  }
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -65,7 +62,6 @@ function Profile({ user }) {
       .then((res) => {
         console.log(res.data.id)
         updateUser(res.data.id)
-        setProfile(res.data)
       })
 
     setFormValues({
@@ -77,29 +73,30 @@ function Profile({ user }) {
       rate: "",
       projects: "",
     })
+
     navigate(0)
   }
+
   if (!user) {
     return <div>Loading</div>
   }
-  if (user.profileId != null) {
+  if (user.profileId != null && toggleProfile == 0) {
+    getUsersProfile()
+    setToggleProfile(1)
+  } else if (user.profileId != null && toggleProfile == 1) {
     return (
       <div>
         <div className="profileContainer">
           <div className="profileForm">
-            <img
-              className="profilePic"
-              src="https://i.pinimg.com/280x280_RS/af/9d/d5/af9dd5f2d044b2f9c3c1521f8973c5a8.jpg"
-            />
-            <h1 className="realName">{user.name}</h1>
-            <p className="profileName">{profile.name}</p>
-            <h3 className="contact">Contact: {profile.contact}</h3>
-            <h3 className="rates">Rate: {profile.rate}</h3>
-            {/* <h3 className="skills">Skill: {profile.Skill.name}</h3> */}
-            <h3 className="location">Location: {profile.city}</h3>
-            <h3 className="about">About: {profile.about}</h3>
+            <img className="profileName" src={profileData.image}></img>
+            <h1 className="realName">Name: {profileData.name}</h1>
+            <h3 className="contact">Contact: {profileData.contact}</h3>
+            <h3 className="rates">Rate: {profileData.rate}</h3>
+            {/* <h3 className="skills">Skill: {profileData.Skill.name}</h3> */}
+            <h3 className="location">Location: {profileData.city}</h3>
+            <h3 className="about">About: {profileData.about}</h3>
             <div className="projectsContainer">
-              Projects: {profile.projects}
+              Projects: {profileData.projects}
               <div className="projectBox"></div>
             </div>
           </div>
@@ -157,7 +154,7 @@ function Profile({ user }) {
               type="text"
               placeholder="Email for Contact"
               value={formValues.contact}
-              // readonly
+              readonly
             />
           </div>
           <div className="input-wrapper">
