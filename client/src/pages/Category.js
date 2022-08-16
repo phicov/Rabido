@@ -23,9 +23,10 @@ const Category = (props) => {
   return (
     <div>
       <h1>Category</h1>
-      <section className="container-grid">
+      <section className="cat-container">
         {cats.map((category) => (
           <CatCard
+            className="cats"
             key={category.id}
             onClick={() => {
               navigate(`/get-skills/${category.id}`)
