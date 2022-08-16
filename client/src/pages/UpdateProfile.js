@@ -39,7 +39,16 @@ function UpdateProfile({ user, skills }) {
 
   const updateProfile = async (data) => {
     const res = await axios
-      .put(`${URL}/api/profiles/${user.profileId}`, { data })
+      .put(`${URL}/api/profiles/${user.profileId}`, {
+        name: data.name,
+        image: data.image,
+        city: data.city,
+        about: data.about,
+        contact: data.contact,
+        rate: data.rate,
+        projects: data.projects,
+        skillId: data.skillId,
+      })
       .then((res) => {
         console.log(res.data)
       })
