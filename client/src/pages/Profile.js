@@ -8,7 +8,6 @@ const URL = "http://localhost:3001"
 
 function Profile({ user }) {
   let navigate = useNavigate()
-  let userId = user.id
 
   const [profile, setProfile] = useState({
     name: "",
@@ -24,9 +23,9 @@ function Profile({ user }) {
   const [formValues, setFormValues] = useState({
     name: "",
     image: "",
-    city: user.city,
+    city: user && user.city,
     about: "",
-    contact: user.email,
+    contact: user && user.email,
     rate: "",
     projects: "",
     // skillId: "",
@@ -40,7 +39,7 @@ function Profile({ user }) {
 
   const updateUser = async (newProfileId) => {
     const update = await axios
-      .put(`${URL}/api/users/${userId}`, { profileId: newProfileId })
+      .put(`${URL}/api/users/${user.id}`, { profileId: newProfileId })
       .then((res) => {
         console.log(res.data)
       })
@@ -79,7 +78,9 @@ function Profile({ user }) {
     })
     navigate("/profile")
   }
-
+  if (!user) {
+    return <div>Loading</div>
+  }
   if (user.profileId != null) {
     return (
       <div>

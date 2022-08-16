@@ -1,6 +1,7 @@
 const { User, Profile } = require("../models")
 const middleware = require("../middleware")
 const { Op } = require("sequelize")
+const jwt = require("jsonwebtoken")
 
 const GetUsers = async (req, res) => {
   try {
@@ -100,7 +101,8 @@ const DeleteUser = async (req, res) => {
 }
 
 const CheckSession = async (req, res) => {
-  const { payload } = res.locals
+  const { token } = res.locals
+  const payload = jwt.verify(token, process.env.APP_SECRET)
   res.send(payload)
 }
 
