@@ -1,8 +1,17 @@
-const { Skill, Profile, Category } = require("../models")
+const { Skill, Profile, Category } = require('../models')
 
 const GetSkills = async (req, res) => {
   try {
     const skills = await Skill.findAll()
+    res.send(skills)
+  } catch (error) {
+    throw error
+  }
+}
+
+const GetSkillNames = async (req, res) => {
+  try {
+    const skills = await Skill.findAll({ attributes: ['name'] })
     res.send(skills)
   } catch (error) {
     throw error
@@ -24,9 +33,9 @@ const GetSKillsByCat = async (req, res) => {
       include: [
         {
           model: Skill,
-          attributes: ["name", "id"],
-        },
-      ],
+          attributes: ['name', 'id']
+        }
+      ]
     })
     res.send({ category })
   } catch (error) {
@@ -40,9 +49,9 @@ const GetProfileBySkill = async (req, res) => {
       include: [
         {
           model: Profile,
-          attributes: ["name", "image", "city", "rate", "projects"],
-        },
-      ],
+          attributes: ['name', 'image', 'city', 'rate', 'projects']
+        }
+      ]
     })
     res.send(profileBySkill)
   } catch (error) {
@@ -72,9 +81,10 @@ const DeleteSkill = async (req, res) => {
 
 module.exports = {
   GetSkills,
+  GetSkillNames,
   GetSkillById,
   GetSKillsByCat,
   GetProfileBySkill,
   CreateSkill,
-  DeleteSkill,
+  DeleteSkill
 }
