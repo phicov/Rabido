@@ -10,6 +10,8 @@ import SignIn from "./pages/SignIn"
 import Signup from "./pages/Signup"
 import ViewSkillsByCat from "./pages/ViewSkillsByCat"
 import ViewProfilesBySkill from "./pages/ViewProfilesBySkill"
+import TestProfile from "./pages/TestProfile"
+
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -76,6 +78,7 @@ function App() {
             path="/get-profiles/:skillId"
             element={<ViewProfilesBySkill />}
           />
+          <Route path ='/testprof' element={<TestProfile/>}/>
         </Routes>
       </main>
     </div>
