@@ -295,6 +295,14 @@ section{
   height: 100vh;
 }
 
+.aboutItems{
+  padding: 10px;
+  background-color: aliceblue;
+  border-radius: 30px;
+  box-shadow: 0 0 10px 3px rgba(0,0,0,0.4);
+
+}
+
 section h1{
   font-size: 4rem;
 }
@@ -319,7 +327,7 @@ section h1{
 }
 
 .projectsContainer{
-  padding-top: 125px;
+  padding-top: 350px;
   padding-bottom: 30px;
   display: flex;
   flex-direction: row;
@@ -348,7 +356,10 @@ section h1{
   border-radius: 20px;
 }
 
-
+.menu{
+  display: flex !important;
+  justify-content: flex-end !important;
+}
 
 
 /* Section Backgrounds */
