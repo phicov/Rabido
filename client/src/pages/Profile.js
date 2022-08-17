@@ -115,7 +115,7 @@ function Profile({ user, skills }) {
     )
   } else {
     return (
-      <div>
+      <div className="createProfileBody">
         <form className="profile-form profileCreate" onSubmit={handleSubmit}>
           <h1>Create Profile</h1>
           <hr></hr>
@@ -148,7 +148,7 @@ function Profile({ user, skills }) {
               readonly
             />
           </div>
-          <div className="input-wrapper">
+          <div className="input-wrapper inputUpdate">
             <textarea
               onChange={handleChange}
               name="about"
@@ -181,7 +181,7 @@ function Profile({ user, skills }) {
               onChange={handleChange}
               name="projects"
               type="text"
-              placeholder="Latest Projects"
+              placeholder="Las Projects"
               value={formValues.projects}
               required
             />

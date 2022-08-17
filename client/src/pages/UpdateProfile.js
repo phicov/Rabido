@@ -115,7 +115,7 @@ function UpdateProfile({ user, skills, handleLogOut }) {
     setToggleProfile(0)
   }
   return (
-    <div>
+    <div className="updateProfileBody">
       <div>
 
         <form className="profile-form updateProfile" onSubmit={handleSubmit}>
@@ -210,7 +210,7 @@ function UpdateProfile({ user, skills, handleLogOut }) {
           </button>
           <h2></h2>
           <hr></hr> 
-          <button onClick={deleteProfile}>Delete Profile</button>
+          <button className="deleteProfButton" onClick={deleteProfile}>Delete Profile</button>
         </form>
        
       </div>
