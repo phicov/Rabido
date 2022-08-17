@@ -6,7 +6,7 @@ module.exports = {
       "categories",
       [
         {
-          name: "Design & Creative",
+          name: "Graphics & Design",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -16,22 +16,27 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          name: "Home Repair",
+          name: "Music & Audio",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Personal Assistance",
+          name: "Video & Animation",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Development & IT",
+          name: "Programming & Tech",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "Sales & Marketing",
+          name: "Lifestyle",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "Writing & Translation",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
