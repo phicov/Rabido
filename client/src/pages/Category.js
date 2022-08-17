@@ -41,7 +41,7 @@ const Category = (props) => {
   }
   return (
     <div>
-      <h1>Category</h1>
+      <h1 className="title">Category</h1>
       <div className="cat-container">
         <div className="catcard">
           <img

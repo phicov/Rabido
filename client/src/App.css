@@ -262,7 +262,7 @@ h1{
   width: 100%;
   height: 100%;
   /* CSS Smooth Scroll */
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
@@ -370,7 +370,6 @@ section h1{
 
 .projects{
 
-
   height: max-content;
   min-height: 100vh;
 }
@@ -403,6 +402,29 @@ section h1{
 
 .projectItem img{
   border-radius: 20px;
+}
+
+.about-card {
+  text-align: left;
+  position: relative;
+  left: 50px;
+}
+
+.profileAbout {
+position: relative;
+bottom: 100px;
+}
+
+.update-prof {
+  width:175px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  color:rgb(41, 101, 185);
+  position: relative;
+  top: 50px;
+  left: 10px;
+
 }
 
 
