@@ -117,74 +117,75 @@ function UpdateProfile({ user, skills, handleLogOut }) {
   return (
     <div>
       <div>
-        <h1>Update Profile</h1>
-        <form className="profile-form" onSubmit={handleSubmit}>
-          <hr></hr>
-          <div className="input-wrapper">
+
+        <form className="profile-form updateProfile" onSubmit={handleSubmit}>
+                 <h1>Update Profile</h1>
+                  <hr></hr>
+          <div className="input-wrapper inputUpdate">
             <input
               onChange={handleChange}
               name="name"
               type="text"
-              placeholder={profName}
+              placeholder= 'Name'
               value={formValues.name}
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="input-wrapper inputUpdate">
             <input
               onChange={handleChange}
               name="image"
               type="text"
-              placeholder={profImg}
+              placeholder= 'Profile Picture URL'
               value={formValues.image}
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="input-wrapper inputUpdate">
             <input
               onChange={handleChange}
               name="city"
               type="text"
-              placeholder={profCity}
+              placeholder= 'City'
               value={formValues.city}
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="input-wrapper inputUpdate">
             <textarea
               onChange={handleChange}
               name="about"
-              placeholder={profAbout}
+              placeholder= 'About Me'
               value={formValues.about}
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="input-wrapper inputUpdate">
             <input
               onChange={handleChange}
               name="contact"
               type="text"
-              placeholder={profContact}
+              placeholder= 'Contact Email'
               value={formValues.contact}
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="input-wrapper inputUpdate">
             <input
               onChange={handleChange}
               name="rate"
               type="text"
-              placeholder={profRate}
+              placeholder= 'Hourly Rate'
               value={formValues.rate}
               required
             />
           </div>
-          <div className="input-wrapper">
+          <div className="input-wrapper inputUpdate">
             <input
               onChange={handleChange}
               name="projects"
               type="text"
-              placeholder={profProj}
+              placeholder= 'Latest Project'
               value={formValues.projects}
               required
             />
@@ -204,13 +205,14 @@ function UpdateProfile({ user, skills, handleLogOut }) {
               ))}
             </select>
           </div>
-          <button className="create-profile-btn" disabled={!formValues.name}>
+          <button className="create-profile-btn inputUpdate" disabled={!formValues.name}>
             Update Profile
           </button>
           <h2></h2>
-          <hr></hr>
+          <hr></hr> 
+          <button onClick={deleteProfile}>Delete Profile</button>
         </form>
-        <button onClick={deleteProfile}>Delete Profile</button>
+       
       </div>
     </div>
   )
