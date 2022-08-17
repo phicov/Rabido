@@ -1,3 +1,8 @@
+.title {
+  text-align: center;
+}
+
+
 .cat-container {
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -38,7 +43,7 @@
   text-decoration: none;
   text-align: right;
   margin-right: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .cat-link:hover {

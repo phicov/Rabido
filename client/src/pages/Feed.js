@@ -51,7 +51,7 @@ function Feed(props) {
                 <h5>Contact: {profile.contact}</h5>
               </div>
               <div className="FeedProfileRate">
-                <h5>Rate: {profile.rate}</h5>
+                <h5>Rate: {profile.rate}/hr</h5>
               </div>
             </div>
           ))}
@@ -82,7 +82,7 @@ function Feed(props) {
               <h5>Contact: {profile.contact}</h5>
             </div>
             <div className="FeedProfileRate">
-              <h5>Rate: {profile.rate}</h5>
+              <h5>Rate: {profile.rate}/hr</h5>
             </div>
           </div>
         ))}

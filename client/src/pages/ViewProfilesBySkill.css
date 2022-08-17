@@ -1,68 +1,61 @@
-.FeedPage {
+.ViewProfilesBySkillPage {
   margin-top: var(--mb-3);
   }
 
-.FeedPageHeader {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0 var(--mb-3) var(--mb-3) var(--mb-5);
+.categories-link{
+  margin-bottom: var(--mb-3);
 }
 
-.FeedPageSortArrows:hover {
-  transition-duration: 0.2s;
-  animation: ease-in-out;
-  transform: scale(1.1);
-  cursor: pointer;
-}
 
-.FeedProfilesContainer {
+.ViewProfilesBySkillContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 60px 30px;
+  margin-top: 35px;
 }
 
-/* Feed Profile Card */
-
-.FeedProfileCard {
+.ProfileCard {
   background-color: white;
   border-radius: 20px;
+  min-width: 300px;
   max-width: 400px;
+  min-height: 400px;
+  overflow-y: auto;
   box-shadow: 0 0 10px 3px rgba(0,0,0,0.4);
   position: relative;
 }
 
-.FeedProfileCard:hover {
+.ProfileCard:hover {
   transition-duration: 0.2s;
   animation: ease-in-out;
   transform: scale(1.05);
   cursor: pointer;
 }
 
-.FeedProfileCard h3{
+.ProfileCard h4{
   text-align: center;
-  margin-top: var(--mb-1);
+  margin: var(--mb-1) 0 var(--mb-3) 0;
 }
 
-.FeedProfileCard img{
+.ProfileCard img{
   border-radius: 20px 20px 0 0;
   max-width: 100%;
 }
 
-.FeedProfileRate {
+.ProfileRate {
   position: absolute;
   bottom: var(--mb-2);
   right: var(--mb-2)
 }
 
-.FeedProfileContact {
+.ProfileContact {
   margin-top: var(--mb-4);
   margin-left: var(--mb-2);
   margin-bottom: 4rem;
 }
 
-.FeedProfileContact h4,h5{
-  margin: 0;
+.ProfileContact h5{
+  margin: var(--mb-1);
 }

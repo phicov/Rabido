@@ -1,3 +1,4 @@
+import "./ViewProfilesBySkill.css"
 import React from "react"
 import { useState } from "react"
 import { useEffect } from "react"
@@ -27,11 +28,13 @@ function ViewProfilesBySkill(props) {
   }
 
   return (
-    <div>
-      <div>
-        <Link className="link" to="/categories">
+    <div className="ViewProfilesBySkillPage">
+      <div className="cat-link">
+        <Link className="cat-link" to="/categories">
           Back To Categories
         </Link>
+      </div>
+      <div className="ViewProfilesBySkillContainer">
         {profiles
           .slice(0)
           .reverse()
