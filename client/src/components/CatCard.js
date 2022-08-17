@@ -4,7 +4,7 @@ function CatCard(props) {
   return (
     <div onClick={props.onClick}>
       <div>
-        <h3 className="cats">{props.category}</h3>
+        <h4 className="cats">{props.category}</h4>
       </div>
     </div>
   )

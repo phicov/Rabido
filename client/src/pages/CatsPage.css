@@ -1,0 +1,33 @@
+.cat-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    }
+    
+    .catcard {
+    margin-left:auto;
+    margin-right: auto;
+    width: 250px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 70px;
+    }
+    
+    .catName {
+      padding-top: 15px;
+    }
+    
+    .catImg {
+      cursor: pointer;
+      margin-left:auto;
+      margin-right: auto;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    }
+    
+    .catImg:hover {
+    opacity: .70;
+    }
