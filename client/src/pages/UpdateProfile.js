@@ -11,7 +11,6 @@ function UpdateProfile({ user, skills, handleLogOut }) {
   let navigate = useNavigate()
 
   const [profileData, setProfileData] = useState([])
-  const [profileSkill, setProfileSkill] = useState([])
   const [toggleProfile, setToggleProfile] = useState(0)
   const [formValues, setFormValues] = useState({
     name: "",

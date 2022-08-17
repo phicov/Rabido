@@ -199,17 +199,6 @@ function Profile({ user, skills }) {
                 </option>
               ))}
             </select>
-            {/* <div className="input-wrapper">
-              <input
-                onChange={handleChange}
-                name="skill"
-                type="text"
-                placeholder="Skill"
-                dropdown = ...skills
-                value={formValues.skillId}
-                required
-              />
-            </div> */}
           </div>
           <button className="create-profile-btn" disabled={!formValues.name}>
             Create Profile

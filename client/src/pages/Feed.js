@@ -1,9 +1,6 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { GetProfiles } from "../services/ProfileServices"
 import { useNavigate } from "react-router-dom"
-import Nav from "../components/Nav"
 import axios from "axios"
 
 const URL = "http://localhost:3001"
