@@ -5,8 +5,8 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   let hunterOptions
   if (user) {
     markOptions = (
-      <nav className='navMain'>
-        <h1>Welcome {user.username}!</h1>
+      <nav className="navMain">
+        <h4 className="link">Welcome {user.username}!</h4>
         <Link className="link" to="/feed">
           Feed
         </Link>
@@ -23,7 +23,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
     )
 
     hunterOptions = (
-      <nav className='navMain'>
+      <nav className="navMain">
         <h1>Welcome {user.username}!</h1>
         <Link className="link" to="/feed">
           Feed
@@ -44,7 +44,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
     )
   } else {
     const publicOptions = (
-      <nav className='navMain'>
+      <nav className="navMain">
         <Link className="link" to="/feed">
           Feed
         </Link>

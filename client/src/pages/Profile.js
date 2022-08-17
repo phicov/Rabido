@@ -1,10 +1,10 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
-import axios from "axios"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-const URL = "http://localhost:3001"
+const URL = 'http://localhost:3001'
 
 function Profile({ user, skills }) {
   let navigate = useNavigate()
@@ -13,14 +13,14 @@ function Profile({ user, skills }) {
   const [profileSkill, setProfileSkill] = useState([])
   const [toggleProfile, setToggleProfile] = useState(0)
   const [formValues, setFormValues] = useState({
-    name: "",
-    image: "",
+    name: '',
+    image: '',
     city: user && user.city,
-    about: "",
+    about: '',
     contact: user && user.email,
-    rate: "",
-    projects: "",
-    skillId: "",
+    rate: '',
+    projects: '',
+    skillId: ''
   })
 
   const getUsersProfile = async () => {
@@ -59,7 +59,7 @@ function Profile({ user, skills }) {
       contact: user.email,
       rate: formValues.rate,
       projects: formValues.projects,
-      skillId: formValues.skillId,
+      skillId: formValues.skillId
     }
 
     const newProfile = await axios
@@ -70,14 +70,14 @@ function Profile({ user, skills }) {
       })
 
     setFormValues({
-      name: "",
-      image: "",
+      name: '',
+      image: '',
       city: user.city,
-      about: "",
+      about: '',
       contact: user.email,
-      rate: "",
-      projects: "",
-      skillId: "",
+      rate: '',
+      projects: '',
+      skillId: ''
     })
 
     navigate(0)
@@ -96,17 +96,17 @@ function Profile({ user, skills }) {
         <div className="profileContainer">
           <div className="profileForm">
             <img className="profileName" src={profileData.image}></img>
-            <h1 className="realName">Name: {profileData.name}</h1>
-            <h3 className="">About: {profileData.about}</h3>
-            <h3 className="contact">Contact: {profileData.contact}</h3>
-            <h3 className="rates">Rate: {profileData.rate}</h3>
-            <h3 className="location">Location: {profileData.city}</h3>
+            <h3 className="realName">Name: {profileData.name}</h3>
             <h3 className="skills">Skill: {profileSkill.name}</h3>
+            <h3 className="location">Location: {profileData.city}</h3>
+            <h3 className="">About: {profileData.about}</h3>
             <h3 className="">Projects: {profileData.projects}</h3>
+            <h3 className="rates">Rate: {profileData.rate}</h3>
+            <h3 className="contact">Contact: {profileData.contact}</h3>
           </div>
 
           <Link to="/update-profile">
-            <button>Update Profile</button>{" "}
+            <button>Update Profile</button>{' '}
           </Link>
         </div>
       </div>
@@ -114,7 +114,6 @@ function Profile({ user, skills }) {
   } else {
     return (
       <div>
-        <h2>Make Profile Form Here</h2>
         <form className="profile-form" onSubmit={handleSubmit}>
           <h1>Create Profile</h1>
           <hr></hr>
