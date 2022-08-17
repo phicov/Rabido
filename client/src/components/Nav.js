@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
 const Nav = ({ authenticated, user, handleLogOut }) => {
   let markOptions
@@ -6,7 +6,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     markOptions = (
       <nav className="navMain">
-        <h4 className='navName'>Welcome {user.username}!</h4>
+        <h4 className="link">Welcome {user.username}!</h4>
         <Link className="link" to="/feed">
           Feed
         </Link>
@@ -24,7 +24,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
 
     hunterOptions = (
       <nav className="navMain">
-        <h4 className='navName'>Welcome {user.username}!</h4>
+        <h4 className="navName">Welcome {user.username}!</h4>
         <Link className="link" to="/feed">
           Feed
         </Link>
