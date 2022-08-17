@@ -116,7 +116,7 @@ function Profile({ user, skills }) {
   } else {
     return (
       <div>
-        <form className="profile-form" onSubmit={handleSubmit}>
+        <form className="profile-form profileCreate" onSubmit={handleSubmit}>
           <h1>Create Profile</h1>
           <hr></hr>
           <div className="input-wrapper">
@@ -134,7 +134,7 @@ function Profile({ user, skills }) {
               onChange={handleChange}
               name="image"
               type="text"
-              placeholder="Image URL"
+              placeholder="Profile Picture URL"
               value={formValues.image}
               required
             />
@@ -171,7 +171,7 @@ function Profile({ user, skills }) {
               onChange={handleChange}
               name="rate"
               type="text"
-              placeholder="Rate"
+              placeholder="Hourly Rate"
               value={formValues.rate}
               required
             />
@@ -181,7 +181,7 @@ function Profile({ user, skills }) {
               onChange={handleChange}
               name="projects"
               type="text"
-              placeholder="Previous Projects"
+              placeholder="Latest Projects"
               value={formValues.projects}
               required
             />
