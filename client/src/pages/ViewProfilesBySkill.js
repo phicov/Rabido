@@ -1,14 +1,14 @@
-import './ViewProfilesBySkill.css'
-import React from 'react'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import ProfileCard from '../components/ProfileCard'
+import "./ViewProfilesBySkill.css"
+import React from "react"
+import { useState } from "react"
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
+import ProfileCard from "../components/ProfileCard"
 
-const URL = 'http://localhost:3001'
+const URL = "http://localhost:3001"
 
 function ViewProfilesBySkill(props) {
   const [profiles, setProfiles] = useState([])
@@ -29,8 +29,8 @@ function ViewProfilesBySkill(props) {
 
   return (
     <div className="ViewProfilesBySkillPage">
-      <div className="categories-link">
-        <Link className="link" to="/categories">
+      <div className="cat-link">
+        <Link className="cat-link" to="/categories">
           Back To Categories
         </Link>
       </div>
