@@ -1,11 +1,11 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
-import axios from "axios"
-import Modal from "../components/Modal"
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import Modal from '../components/Modal'
 
-const URL = "http://localhost:3001"
+const URL = 'http://localhost:3001'
 
 function Profile({ user, skills }) {
   console.log(user)
@@ -17,14 +17,14 @@ function Profile({ user, skills }) {
   const [profileSkill, setProfileSkill] = useState([])
   const [toggleProfile, setToggleProfile] = useState(0)
   const [formValues, setFormValues] = useState({
-    name: "",
-    image: "",
+    name: '',
+    image: '',
     city: user && user.city,
-    about: "",
+    about: '',
     contact: user && user.email,
-    rate: "",
-    projects: "",
-    skillId: "",
+    rate: '',
+    projects: '',
+    skillId: ''
   })
 
   const getUsersProfile = async () => {
@@ -63,7 +63,7 @@ function Profile({ user, skills }) {
       contact: user.email,
       rate: formValues.rate,
       projects: formValues.projects,
-      skillId: formValues.skillId,
+      skillId: formValues.skillId
     }
 
     const newProfile = await axios
@@ -74,14 +74,14 @@ function Profile({ user, skills }) {
       })
 
     setFormValues({
-      name: "",
-      image: "",
+      name: '',
+      image: '',
       city: user.city,
-      about: "",
+      about: '',
       contact: user.email,
-      rate: "",
-      projects: "",
-      skillId: "",
+      rate: '',
+      projects: '',
+      skillId: ''
     })
 
     navigate(0)
@@ -261,7 +261,7 @@ function Profile({ user, skills }) {
               onChange={handleChange}
               name="projects"
               type="text"
-              placeholder="Las Projects"
+              placeholder="Last Projects"
               value={formValues.projects}
               required
             />

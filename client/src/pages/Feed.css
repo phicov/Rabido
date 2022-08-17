@@ -48,7 +48,8 @@
 
 .FeedProfileCard img{
   border-radius: 20px 20px 0 0;
-  max-width: 100%;
+  min-width: 100%;
+  height: 380px;
 }
 
 .FeedProfileRate {
