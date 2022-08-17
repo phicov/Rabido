@@ -8,7 +8,8 @@ const MODAL_STYLES = {
     backgroundColor: 'white',
     padding: '50px',
     zIndex: 1000,
-    borderRadius: '20px'
+    borderRadius: '20px',
+    textAlign: 'center'
 }
 
 const OVERLAY_STYLES = {
