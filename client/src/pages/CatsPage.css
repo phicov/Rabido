@@ -6,7 +6,7 @@
     .catcard {
     margin-left:auto;
     margin-right: auto;
-    width: 250px;
+    width: auto;
     text-align: center;
     color: white;
     font-weight: bold;
@@ -29,5 +29,72 @@
     }
     
     .catImg:hover {
-    opacity: .70;
+      transform: scale(1.05);
+    }
+
+.cat-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.cat-link:hover {
+  color:  rgb(41, 101, 185);
+}
+
+    .skills-container{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      margin-top:100px;
+      margin-left:auto;
+      margin-right: auto;
+      justify-content: center;
+    }
+
+    .skill-card {
+      background-color: white;
+      width: 250px;
+      height: 250px;
+      border-radius: 25px;
+      margin-left:auto;
+      margin-right: auto;
+      cursor: pointer;
+      margin-bottom: 50px;
+      box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-pic {
+      width: 250px;
+      margin-left:auto;
+      margin-right: auto;
+      border-radius: 25px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .skill-background {
+      width: 210px;
+      margin-left:auto;
+      margin-right: auto;
+      margin-bottom: 50px;
+    }
+
+    .skills {
+      width: 210px;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      margin-left:auto;
+      margin-right: auto;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-radius: 25px;
+      border: none;
     }
