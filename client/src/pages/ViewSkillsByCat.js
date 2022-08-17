@@ -28,11 +28,13 @@ function ViewSkillsByCat(props) {
 
   return (
     <div>
-      <h1>Skills</h1>
-      <section>
-        <Link className="link" to="/categories">
+      <div className="cat-link">
+        <Link className="cat-link" to="/categories">
           Back To Categories
         </Link>
+      </div>
+
+      <div className="skills-container">
         {skills.map((skill) => (
           <SkillCard
             key={skill.id}
@@ -42,7 +44,7 @@ function ViewSkillsByCat(props) {
             name={skill.name}
           />
         ))}
-      </section>
+      </div>
     </div>
   )
 }
