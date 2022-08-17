@@ -6,12 +6,14 @@
   margin-bottom: var(--mb-3);
 }
 
+
 .ViewProfilesBySkillContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 60px 30px;
+  margin-top: 35px;
 }
 
 .ProfileCard {
