@@ -1,3 +1,4 @@
+import './Feed.css'
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -26,27 +27,32 @@ function Feed(props) {
   }
 
   const sortASC = (
-    <div>
-      <h1>Feed</h1>
+    <div className="FeedPage">
+      <div className="FeedPageHeader">
+        <h3>{profiles.length} profiles found</h3>
+        <BsArrowDownUp
+          className="FeedPageSortArrows"
+          onClick={switchSort}
+          size={30}
+        ></BsArrowDownUp>
+      </div>
 
-      <h3>{profiles.length} profiles found</h3>
-
-      <h4 onClick={switchSort}>Sort {BsArrowDownUp}</h4>
-
-      <div>
+      <div className="FeedProfilesContainer">
         {profiles
           .slice(0)
           .reverse()
           .map((profile) => (
-            <div key={profile.id}>
+            <div className="FeedProfileCard" key={profile.id}>
               <img src={profile.image} alt="post-content" />
-              <h4>Name: {profile.name}</h4>
-              <h5>Contact: {profile.contact}</h5>
-              <h5>City: {profile.city}</h5>
-              <h5>About: {profile.about}</h5>
-              <h5>Rate: {profile.rate}</h5>
-              <h5>Projects: {profile.projects}</h5>
-              <h5>Skill: {profile.Skill.name}</h5>
+              <h3>{profile.Skill.name}</h3>
+              <div className="FeedProfileContact">
+                <h5>{profile.name}</h5>
+                <h5>City: {profile.city}</h5>
+                <h5>Contact: {profile.contact}</h5>
+              </div>
+              <div className="FeedProfileRate">
+                <h5>Rate: {profile.rate}</h5>
+              </div>
             </div>
           ))}
       </div>
@@ -55,23 +61,29 @@ function Feed(props) {
   )
 
   const sortDESC = (
-    <div>
-      <h1>Feed</h1>
+    <div className="FeedPage">
+      <div className="FeedPageHeader">
+        <h3>{profiles.length} profiles found</h3>
+        <BsArrowDownUp
+          className="FeedPageSortArrows"
+          onClick={switchSort}
+          size={30}
+        ></BsArrowDownUp>
+      </div>
 
-      <h3>{profiles.length} profiles found</h3>
-
-      <h4 onClick={switchSort}>Sort {BsArrowDownUp}</h4>
-      <div>
+      <div className="FeedProfilesContainer">
         {profiles.map((profile) => (
-          <div key={profile.id}>
+          <div className="FeedProfileCard" key={profile.id}>
             <img src={profile.image} alt="post-content" />
-            <h4>Name: {profile.name}</h4>
-            <h5>Contact: {profile.contact}</h5>
-            <h5>City: {profile.city}</h5>
-            <h5>About: {profile.about}</h5>
-            <h5>Rate: {profile.rate}</h5>
-            <h5>Projects: {profile.projects}</h5>
-            <h5>Skill: {profile.Skill.name}</h5>
+            <h3>{profile.Skill.name}</h3>
+            <div className="FeedProfileContact">
+              <h5>{profile.name}</h5>
+              <h5>City: {profile.city}</h5>
+              <h5>Contact: {profile.contact}</h5>
+            </div>
+            <div className="FeedProfileRate">
+              <h5>Rate: {profile.rate}</h5>
+            </div>
           </div>
         ))}
       </div>
