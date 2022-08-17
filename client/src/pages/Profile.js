@@ -1,26 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from "react"
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import axios from "axios"
 
-const URL = 'http://localhost:3001'
+const URL = "http://localhost:3001"
 
 function Profile({ user, skills }) {
+  console.log(user)
+  console.log(skills)
   let navigate = useNavigate()
 
   const [profileData, setProfileData] = useState([])
   const [profileSkill, setProfileSkill] = useState([])
   const [toggleProfile, setToggleProfile] = useState(0)
   const [formValues, setFormValues] = useState({
-    name: '',
-    image: '',
+    name: "",
+    image: "",
     city: user && user.city,
-    about: '',
+    about: "",
     contact: user && user.email,
-    rate: '',
-    projects: '',
-    skillId: ''
+    rate: "",
+    projects: "",
+    skillId: "",
   })
 
   const getUsersProfile = async () => {
@@ -59,7 +61,7 @@ function Profile({ user, skills }) {
       contact: user.email,
       rate: formValues.rate,
       projects: formValues.projects,
-      skillId: formValues.skillId
+      skillId: formValues.skillId,
     }
 
     const newProfile = await axios
@@ -70,14 +72,14 @@ function Profile({ user, skills }) {
       })
 
     setFormValues({
-      name: '',
-      image: '',
+      name: "",
+      image: "",
       city: user.city,
-      about: '',
+      about: "",
       contact: user.email,
-      rate: '',
-      projects: '',
-      skillId: ''
+      rate: "",
+      projects: "",
+      skillId: "",
     })
 
     navigate(0)
@@ -106,7 +108,7 @@ function Profile({ user, skills }) {
           </div>
 
           <Link to="/update-profile">
-            <button>Update Profile</button>{' '}
+            <button>Update Profile</button>{" "}
           </Link>
         </div>
       </div>
