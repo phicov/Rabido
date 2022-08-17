@@ -3,10 +3,11 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
+import { confirm } from "react-confirm-box"
 
 const URL = "http://localhost:3001"
 
-function UpdateProfile({ user, skills }) {
+function UpdateProfile({ user, skills, handleLogOut }) {
   let navigate = useNavigate()
 
   const [profileData, setProfileData] = useState([])
@@ -53,6 +54,24 @@ function UpdateProfile({ user, skills }) {
         console.log(res.data)
       })
       .catch((error) => console.log(error))
+  }
+
+  const deleteProfile = async () => {
+    const confirmDelete = await confirm(
+      "Are you sure you want to delete your profile?"
+    )
+    if (confirmDelete) {
+      console.log("user clicked yes")
+      const res = await axios
+        .delete(`${URL}/api/profiles/${user.profileId}`)
+        .then((res) => {
+          console.log(res)
+          handleLogOut()
+          navigate("/")
+        })
+    } else {
+      console.log("user clicked no")
+    }
   }
 
   const handleChange = (e) => {
@@ -146,7 +165,7 @@ function UpdateProfile({ user, skills }) {
               onChange={handleChange}
               name="contact"
               type="text"
-              placeholder="Email"
+              placeholder={profContact}
               value={formValues.contact}
               required
             />
@@ -192,6 +211,7 @@ function UpdateProfile({ user, skills }) {
           <h2></h2>
           <hr></hr>
         </form>
+        <button onClick={deleteProfile}>Delete Profile</button>
       </div>
     </div>
   )
