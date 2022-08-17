@@ -137,7 +137,7 @@ img{
   align-items: center;
 }
 
-.link:hover , .signup-btn:hover, .signin-btn:hover, .hunterLabel:hover, .signLink:hover{
+.link:not(h4):hover , .signup-btn:hover, .signin-btn:hover, .hunterLabel:hover, .signLink:hover{
   transition-duration: 0.2s;
   animation: ease-in-out;
   transform: scale(1.1);
