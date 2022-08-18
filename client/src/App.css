@@ -352,9 +352,11 @@ h1{
 }
 
 .aboutItems{
-  display: flex;
-  justify-content: space-around;
+  width: 400px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
 }
 
 section h1{
@@ -375,7 +377,7 @@ section h1{
   width: 125px;
   border-radius: 50%;
   position: relative;
-  top: -175px;
+  top: -150px;
 }
 
 .profilePreview{
