@@ -30,11 +30,17 @@ function Feed(props) {
     <div className="FeedPage">
       <div className="FeedPageHeader">
         <h3>{profiles.length} profiles found</h3>
-        <BsArrowDownUp
-          className="FeedPageSortArrows"
-          onClick={switchSort}
-          size={30}
-        ></BsArrowDownUp>
+        <div className="FeedPageSort">
+          <h3>
+            Sort Profiles: <span style={{ fontWeight: 'bold' }}>ASC</span>{' '}
+            <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>DESC</span>
+          </h3>
+          <BsArrowDownUp
+            className="FeedPageSortArrows"
+            onClick={switchSort}
+            size={30}
+          ></BsArrowDownUp>
+        </div>
       </div>
 
       <div className="FeedProfilesContainer">
@@ -64,11 +70,18 @@ function Feed(props) {
     <div className="FeedPage">
       <div className="FeedPageHeader">
         <h3>{profiles.length} profiles found</h3>
-        <BsArrowDownUp
-          className="FeedPageSortArrows"
-          onClick={switchSort}
-          size={30}
-        ></BsArrowDownUp>
+        <div className="FeedPageSort">
+          <h3>
+            Sort Profiles:{' '}
+            <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>ASC</span>{' '}
+            <span style={{ fontWeight: 'bold' }}>DESC</span>
+          </h3>
+          <BsArrowDownUp
+            className="FeedPageSortArrows"
+            onClick={switchSort}
+            size={30}
+          ></BsArrowDownUp>
+        </div>
       </div>
 
       <div className="FeedProfilesContainer">
