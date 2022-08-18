@@ -260,7 +260,7 @@ h1{
 .inputUpdate textarea{
   width: 90%;
   height: 100px;
-  border-radius: 30px;
+  border-radius: 31px;
   border: 0.1px solid black;
   padding: 15px;
 }
