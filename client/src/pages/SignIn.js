@@ -18,7 +18,11 @@ function SignIn(props) {
     setFormValues({ username: '', password: '' })
     props.setUser(payload)
     props.toggleAuthenticated(true)
-    navigate('/profile')
+    if (payload.isHunter === true) {
+      navigate('/feed')
+    } else {
+      navigate('/profile')
+    }
   }
 
   return (
