@@ -63,6 +63,7 @@
   margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .ProfileContact h5{

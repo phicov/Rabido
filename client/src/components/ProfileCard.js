@@ -1,8 +1,16 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function ProfileCard(props) {
+  let navigate = useNavigate()
+
   return (
-    <div onClick={props.onClick} className="ProfileCard">
+    <div
+      className="ProfileCard"
+      onClick={() => {
+        navigate(`/view-profile/${props.id}`)
+      }}
+    >
       <img src={props.image} alt="profile-content" />
       <div className="ProfileContact">
         <h4>{props.name}</h4>
