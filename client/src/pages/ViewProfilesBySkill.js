@@ -1,12 +1,11 @@
 import './ViewProfilesBySkill.css'
 import React from 'react'
+import axios from 'axios'
+import ProfileCard from '../components/ProfileCard'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import ProfileCard from '../components/ProfileCard'
 
 const URL = 'http://localhost:3001'
 
@@ -14,7 +13,6 @@ function ViewProfilesBySkill(props) {
   const [profiles, setProfiles] = useState([])
 
   let { skillId } = useParams()
-  let navigate = useNavigate()
 
   useEffect(() => {
     getProfiles()

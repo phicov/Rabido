@@ -11,17 +11,6 @@ const GetProfiles = async (req, res) => {
   }
 }
 
-// const profileId = async (req, userEmail, res) => {
-//   try {
-//     const profile = await Profile.findOne({ where: { email: userEmail },
-//       include: [{ model: User, attributes: ["email"] }],
-//     })
-//     res.send(profiles)
-//   } catch (error) {
-//     throw error
-//   }
-// }
-
 const GetProfileById = async (req, res) => {
   try {
     const profile = await Profile.findByPk(req.params.profile_id, {
