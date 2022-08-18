@@ -1,7 +1,7 @@
 import './Feed.css'
 import React from 'react'
-import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { BsArrowDownUp } from 'react-icons/bs'
 import axios from 'axios'
 
@@ -48,7 +48,13 @@ function Feed(props) {
           .slice(0)
           .reverse()
           .map((profile) => (
-            <div className="FeedProfileCard" key={profile.id}>
+            <div
+              className="FeedProfileCard"
+              key={profile.id}
+              onClick={() => {
+                navigate(`/view-profile/${profile.id}`)
+              }}
+            >
               <img src={profile.image} alt="post-content" />
               <h3>{profile.Skill.name}</h3>
               <div className="FeedProfileContact">
@@ -86,7 +92,13 @@ function Feed(props) {
 
       <div className="FeedProfilesContainer">
         {profiles.map((profile) => (
-          <div className="FeedProfileCard" key={profile.id}>
+          <div
+            className="FeedProfileCard"
+            key={profile.id}
+            onClick={() => {
+              navigate(`/view-profile/${profile.id}`)
+            }}
+          >
             <img src={profile.image} alt="post-content" />
             <h3>{profile.Skill.name}</h3>
             <div className="FeedProfileContact">
