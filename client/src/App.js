@@ -1,20 +1,21 @@
-import "./App.css"
-import { Route, Routes } from "react-router"
-import { useState, useEffect } from "react"
-import { CheckSession } from "./services/Auth"
-import Nav from "./components/Nav"
-import Feed from "./pages/Feed"
-import Profile from "./pages/Profile"
-import Category from "./pages/Category"
-import SignIn from "./pages/SignIn"
-import Signup from "./pages/Signup"
-import ViewSkillsByCat from "./pages/ViewSkillsByCat"
-import ViewProfilesBySkill from "./pages/ViewProfilesBySkill"
-import TestProfile from "./pages/TestProfile"
-import axios from "axios"
-import UpdateProfile from "./pages/UpdateProfile"
+import './App.css'
+import { Route, Routes } from 'react-router'
+import { useState, useEffect } from 'react'
+import { CheckSession } from './services/Auth'
+import Nav from './components/Nav'
+import Feed from './pages/Feed'
+import Profile from './pages/Profile'
+import Category from './pages/Category'
+import SignIn from './pages/SignIn'
+import Signup from './pages/Signup'
+import ViewSkillsByCat from './pages/ViewSkillsByCat'
+import ViewProfilesBySkill from './pages/ViewProfilesBySkill'
+import TestProfile from './pages/TestProfile'
+import axios from 'axios'
+import UpdateProfile from './pages/UpdateProfile'
+import SelectedProfile from './pages/SelectedProfile'
 
-const URL = "http://localhost:3001"
+const URL = 'http://localhost:3001'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -38,13 +39,13 @@ function App() {
 
   const checkToken = async () => {
     const userData = await CheckSession()
-    localStorage.setItem("token", userData.token)
+    localStorage.setItem('token', userData.token)
     setUser(userData.user)
     toggleAuthenticated(true)
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem('token')
     if (token) {
       checkToken()
     }
@@ -82,6 +83,10 @@ function App() {
                 handleLogOut={handleLogOut}
               />
             }
+          />
+          <Route
+            path="/view-profile/:profileId"
+            element={<SelectedProfile />}
           />
           <Route
             path="/categories"
