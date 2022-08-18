@@ -46,7 +46,9 @@
 
 .ProfileCard img{
   border-radius: 20px 20px 0 0;
-  max-width: 100%
+  max-width: 100%;
+  height:fit-content;
+  object-fit: cover;
 }
 
 .ProfileRate {
