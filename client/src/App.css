@@ -298,7 +298,7 @@ h1{
 
 .profileNav{
   position: fixed;
-  top: 50px;
+  top: 60px;
   z-index: 2;
   display: flex;
   width: 100%;
@@ -364,15 +364,6 @@ section h1{
   font-size: 4rem;
 }
 
-
-.about p{
-  position: relative;
-  top: -80px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 200px;
-  text-align: center;
-}
 
 .aboutForm img{
   width: 125px;
@@ -442,7 +433,7 @@ section h1{
 
 .profileAbout {
 position: relative;
-bottom: 100px;
+bottom: 80px;
 }
 
 .update-prof {
