@@ -1,18 +1,17 @@
-import React from "react"
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
-import CatCard from "../components/CatCard"
-import graphicsDesign from "../assets/graphics-design.png"
-import admin from "../assets/admin.jpeg"
-import music from "../assets/audio.webp"
-import animation from "../assets/animation.avif"
-import program from "../assets/program.png"
-import lifestyle from "../assets/lifestyle.jpeg"
-import write from "../assets/write.jpeg"
-import "./CatsPage.css"
+import React from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import graphicsDesign from '../assets/graphics-design.png'
+import admin from '../assets/admin.jpeg'
+import music from '../assets/audio.webp'
+import animation from '../assets/animation.avif'
+import program from '../assets/program.png'
+import lifestyle from '../assets/lifestyle.jpeg'
+import write from '../assets/write.jpeg'
+import './CatsPage.css'
 
-const URL = "http://localhost:3001"
+const URL = 'http://localhost:3001'
 
 const Category = (props) => {
   let navigate = useNavigate()

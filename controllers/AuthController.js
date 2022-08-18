@@ -1,10 +1,6 @@
 const { User } = require('../models')
 const middleware = require('../middleware')
 
-//----------------------------------------------------------//
-//--Check Login payload, Use Register in routes/UserRouter--//
-//----------------------------------------------------------//
-
 const Login = async (req, res) => {
   try {
     const user = await User.findOne({

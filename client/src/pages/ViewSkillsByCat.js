@@ -1,13 +1,13 @@
-import React from "react"
-import { useState } from "react"
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
-import { Link } from "react-router-dom"
-import SkillCard from "../components/SkillCard"
+import React from 'react'
+import axios from 'axios'
+import SkillCard from '../components/SkillCard'
+import { useState } from 'react'
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const URL = "http://localhost:3001"
+const URL = 'http://localhost:3001'
 
 function ViewSkillsByCat(props) {
   const [skills, setSkills] = useState([])

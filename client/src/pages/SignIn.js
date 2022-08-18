@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SignInUser } from '../services/Auth'
-import axios from 'axios'
 
 function SignIn(props) {
   let navigate = useNavigate()

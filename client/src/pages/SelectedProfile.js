@@ -1,9 +1,6 @@
-import ProfileCard from '../components/ProfileCard'
 import Modal from '../components/Modal'
 import React from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -11,7 +8,6 @@ const URL = 'http://localhost:3001'
 
 const SelectedProfile = () => {
   let { profileId } = useParams()
-  let navigate = useNavigate()
 
   const [profileData, setProfileData] = useState([])
   const [profileSkill, setProfileSkill] = useState([])
