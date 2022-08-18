@@ -78,7 +78,7 @@
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
   margin-bottom: 4rem;
-  overflow: auto;
+  overflow:scroll;
 }
 
 .FeedProfileContact h4,h5{
