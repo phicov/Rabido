@@ -2,7 +2,7 @@
 
 <img src= "https://i.ibb.co/x7f4nz8/Rabido-Logo.png" alt="Rabido-Logo" border="0"/>
 
-### Date: 8/10/2022
+### Date: 8/18/2022
 
 ### By: Kenneth Chan, Austin Do, Philippe Covington
 
@@ -16,7 +16,7 @@
 
 ### **_Description_**
 
-#### Rabido is a website that connects freelancers offering services with businesses/individuals. The freelancer creates a profile to showcase their skillsets. Once the account is created, the freelancer will be able to make updates to their profile accordingly. The client/business signs up to view freelancers and their skills on the feed. The client is also able to filter their search to find a freelancer with the specific skills required. Once finding the right person for their project they are able to reach out to further inquire about their abilities and brief them on the job description.
+#### Rabido is a website that connects freelancers offering services with businesses/individuals. The freelancer creates a profile to showcase their skillsets. Once the account is created, the freelancer will be able to make updates to their profile accordingly. The client/business signs up to view freelancers and their skills on the feed. The client is also able to filter their search to find a freelancer with the specific skills required. Once finding the right person for their project they are able to reach out to further inquire about their skills and past work.
 
 ---
 
