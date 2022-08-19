@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "npm install && npx sequelize-cli db:migrate"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,6 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
     "react-confirm-box": "^1.2.0",
-
     "sequelize": "^6.21.3"
   },
   "devDependencies": {
