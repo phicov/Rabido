@@ -19,3 +19,21 @@ module.exports = {
     },
   },
 }
+
+// {
+//   "development": {
+//     "database": "rabido_dev",
+//     "host": "127.0.0.1",
+//     "dialect": "postgres"
+//   },
+//   "test": {
+//     "database": "rabido_test",
+//     "host": "127.0.0.1",
+//     "dialect": "postgres"
+//   },
+//   "production": {
+//     "database": "rabido_prod",
+//     "host": "127.0.0.1",
+//     "dialect": "postgres"
+//   }
+// }
